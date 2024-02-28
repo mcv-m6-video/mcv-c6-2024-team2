@@ -49,7 +49,7 @@ These enhancements significantly improved the stability and accuracy of foregrou
 Adaptive methods: 
 | COLOR SPACE | ALPHA | RHO | TARGET BRIGHTNESS | AP |
 |-------------|-------|-----|-------------------|----|
-| HLS | 19.5 | 0.3 | 106 | 0.423 |
+| HLS | 13.5 | 0.3 | 106 | 0.423 |
 | Lab | 19.5 | 0.7 | 132 | 0.375 |
 | RGB | 14.5 | 0.9 | 152 | 0.317 |
 | HLS | 13.5 | 0.8 | 119 | 0.293 |
