@@ -37,3 +37,23 @@ Non-Adaptive Method: Static approach to foreground extraction.
 Adaptive Method: Dynamic adjustment of parameters based on input data, yielding superior results.
 These enhancements significantly improved the stability and accuracy of foreground extraction, with the adaptive method proving more effective.
 
+| COLOR SPACE | ALPHA | RHO | TARGET BRIGHTNESS | AP |
+|-------------|-------|-----|-------------------|----|
+| HLS | 14.5 | 0.4 | 175 | 0.24 |
+| Lab | 19.5 | 0.3 | 130 | 0.22 |
+| HSV | 9.5 | 0.7 | 139 | 0.17 |
+| HLS | 4.5 | 0.4 | 119 | 0.169 |
+| YCrCb | 24.5 | 0.8 | 101 | 0.13 |
+
+
+Adaptive methods: 
+| COLOR SPACE | ALPHA | RHO | TARGET BRIGHTNESS | AP |
+|-------------|-------|-----|-------------------|----|
+| HLS | 19.5 | 0.3 | 106 | 0.423 |
+| Lab | 19.5 | 0.7 | 132 | 0.375 |
+| RGB | 14.5 | 0.9 | 152 | 0.317 |
+| HLS | 13.5 | 0.8 | 119 | 0.293 |
+| YCrCb | 19.5 | 0.4 | 170 | 0.22 |
+
+
+
