@@ -13,6 +13,9 @@ Our code is organized as:
 └──task 1_3.py fine-tune the model from task1_1
 ├── task_1_2 : annotation result          
 ├──task_1_4: k-fold method
+├──task_2_1: tracking by overlap
+├──task_2_2: tracking with a Kalman Filter
+└──task_2_2: IDF1,HOTA scores
 ```
 
 - Task 1.1 & 1.3
