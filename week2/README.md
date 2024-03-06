@@ -16,7 +16,7 @@ Our code is organized as:
 ```
 
 - Task 1.1 & 1.3
-Run task1_1.py and task_1_3finetune.py
+Run task1_1.py and task_1_3finetune.py. The latter needs to be run after the first since the first one includes code to extract the frames from the given video. Due to the total size of the extracted frames, these were not added directly to this repository. The user needs to specify the path to the video in the python file.
 
 - Task 1.4
 ```
@@ -45,3 +45,4 @@ Run task1_1.py and task_1_3finetune.py
                 └── No-fold
                     └── pre-trained-output.avi      # Annotated output video from pre-trained model
 ```
+Task 2.1 - Can be run on its own. It uses the json files containing the predictions (found in this repository) to perform tracking.
