@@ -14,7 +14,7 @@ Our code is organized as:
 ├── task_1_2 : annotation result          
 ├──task_1_4: k-fold method
 ├──task_2_1: tracking by overlap
-├──task_2_2: tracking with a Kalman Filter
+├──task_2_2: tracking with a Kalman Filter 
 └──task_2_2: IDF1,HOTA scores
 ```
 
@@ -51,7 +51,7 @@ Run task1_1.py and task_1_3finetune.py. The latter needs to be run after the fir
 Task 2.1 - Can be run on its own. It uses the json files containing the predictions (found in this repository) to perform tracking.
 
 
-Task 2.2 
+Task 2.2 : just run the notebook
 
 The object tracking system consists of two main components: `KalmanFilter` and `Tracker`. 
 
