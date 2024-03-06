@@ -58,9 +58,9 @@ The `KalmanFilter` class implements the Kalman Filter algorithm, which predicts 
 
 - **Initialization**: Initializes the Kalman Filter with parameters such as time step, process noise covariance, measurement noise covariance, initial state, and initial uncertainty covariance.
 
-- **Prediction**: Predicts the next state of the object based on the current state and the system dynamics. This involves updating the state estimate (\(\hat{x}_{k|k-1}\)) and state covariance (\(P_{k|k-1}\)) using the state transition model (\(A\)), process noise covariance (\(Q\)), and control-input model (\(B\)).
+- **Prediction**: Predicts the next state of the object based on the current state and the system dynamics. This involves updating the state estimate $(\(\hat{x}_{k|k-1}\))$ and state covariance $(\(P_{k|k-1}\))$ using the state transition model $(\(A\))$, process noise covariance (\(Q\)), and control-input model $(\(B\))$.
 
-- **Update**: Corrects the predicted state based on the measurement obtained from sensors. This involves calculating the measurement pre-fit residual (\(y_k\)), residual covariance (\(S_k\)), Kalman gain (\(K_k\)), and updating the state estimate (\(\hat{x}_k\)) and state covariance (\(P_k\)) using the measurement model (\(H\)) and measurement noise covariance (\(R\)).
+- **Update**: Corrects the predicted state based on the measurement obtained from sensors. This involves calculating the measurement pre-fit residual $(\(y_k\))$, residual covariance (\(S_k\)), Kalman gain (\(K_k\)), and updating the state estimate $(\(\hat{x}_k\))$ and state covariance $(\(P_k\))$ using the measurement model $(\(H\))$ and measurement noise covariance $(\(R\))$.
 
 ### Tracker
 
