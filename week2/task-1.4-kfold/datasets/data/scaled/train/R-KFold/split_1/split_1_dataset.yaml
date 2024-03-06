@@ -1,0 +1,7 @@
+names:
+- bicycle
+- car
+- person
+path: data/scaled/train/R-KFold/split_1
+train: train
+val: val

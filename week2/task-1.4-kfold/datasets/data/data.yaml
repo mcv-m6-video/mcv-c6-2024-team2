@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['bicycle', 'car', 'person']
+
+roboflow:
+  workspace: c6
+  project: videocarobjdet
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/c6/videocarobjdet/dataset/2
