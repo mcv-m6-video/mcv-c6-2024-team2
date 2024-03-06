@@ -5,7 +5,7 @@ dir_path = 'AICity_data/train/S03/c010/'
 video_path = dir_path + 'vdo.avi'
 frames_path = 'frames/'
 
-def play_video(cap, frames_path, start_frame=0, end_frame=None, mode='show', roi=None):
+def save_frames(cap, frames_path, start_frame=0, end_frame=None, mode='show', roi=None):
     frame_id = start_frame
     cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
 
@@ -31,6 +31,3 @@ def play_video(cap, frames_path, start_frame=0, end_frame=None, mode='show', roi
         # Press Q on keyboard to exit 
         if cv2.waitKey(30) & 0xFF == ord('q'):
             break
-
-cap = cv2.VideoCapture(video_path)
-play_video(cap, frames_path, mode='write')

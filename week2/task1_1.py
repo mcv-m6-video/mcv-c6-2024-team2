@@ -9,7 +9,7 @@ import time
 import shutil
 from tqdm import tqdm
 
-from utils import parse_xml_annotations
+from utils import parse_xml_annotations, save_frames
 
 # import some common detectron2 utilities
 from detectron2.evaluation import COCOEvaluator, inference_on_dataset
@@ -28,12 +28,21 @@ path_xml = './ai_challenge_s03_c010-full_annotation.xml'
 model = 'COCO-Detection/faster_rcnn_R_50_FPN_3x'
 threshold = 0.5
 
+dir_path = 'AICity_data/train/S03/c010/'
+video_path = dir_path + 'vdo.avi'
+frames_path = 'frames/'
 
 cfg = get_cfg()
 cfg.merge_from_file(model_zoo.get_config_file(f"{model}.yaml"))
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = threshold  # set threshold for this model
 cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url(f"{model}.yaml")
 predictor = DefaultPredictor(cfg)
+
+if not os.path.exists(path_input):
+    os.makedirs(path_input)
+    cap = cv2.VideoCapture(video_path)
+    save_frames(cap, path_input, mode='write')
+
 
 def get_images(img_dir):
     images = [img for img in os.listdir(img_dir)]
