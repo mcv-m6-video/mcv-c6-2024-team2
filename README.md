@@ -18,6 +18,8 @@ We are Team 2 which is composed by:
             ├── data.yaml        # Configuration file from RoboFlow (YOLO8 format)
             ├── vdo-scaled.mp4   # Video scaled to 640x384 (keep ratio)
             └── train
+                ├── images       # All frames scaled to 640x640 (YOLO recommended size)(comes from RoboFlow)
+                ├── labels       # All labels (comes from RoboFlow)
                 ├── B_KFold/R-KFold                  # B_KFold = Strategy B Kfold, R-KFold = Strategy C (random) KFold 
                 │   └── split_<x>                    # x = 0-3 for B_KFold, x = 1-4 for R-KFold
                 │       ├── output.avi               # Annotated output video from training the model on this dataset
