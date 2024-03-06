@@ -6,6 +6,16 @@ We are Team 2 which is composed by:
 
 
 ### Week 2
+
+Our code is organized as:
+├── task1_1.py
+└──task 1_3.py fine-tune the model from task1_1
+├── task_1_2 : annotation result           # Training results for Strategy C (plots, some annotated frames, weights) , x = number 
+├──task_1_4: k-fold method
+
+- Task 1.1 & 1.3
+Run task1_1.py and task_1_3finetune.py
+
 - Task 1.4
 ```
 .
