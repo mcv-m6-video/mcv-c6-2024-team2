@@ -46,3 +46,70 @@ Run task1_1.py and task_1_3finetune.py. The latter needs to be run after the fir
                     └── pre-trained-output.avi      # Annotated output video from pre-trained model
 ```
 Task 2.1 - Can be run on its own. It uses the json files containing the predictions (found in this repository) to perform tracking.
+
+
+Task 2.2 
+
+The object tracking system consists of two main components: `KalmanFilter` and `Tracker`. 
+
+### KalmanFilter
+
+The `KalmanFilter` class implements the Kalman Filter algorithm, which predicts and updates the state of objects being tracked. It includes the following components:
+
+- **Initialization**: Initializes the Kalman Filter with parameters such as time step, process noise covariance, measurement noise covariance, initial state, and initial uncertainty covariance.
+
+- **Prediction**: Predicts the next state of the object based on the current state and the system dynamics. This involves updating the state estimate (\(\hat{x}_{k|k-1}\)) and state covariance (\(P_{k|k-1}\)) using the state transition model (\(A\)), process noise covariance (\(Q\)), and control-input model (\(B\)).
+
+- **Update**: Corrects the predicted state based on the measurement obtained from sensors. This involves calculating the measurement pre-fit residual (\(y_k\)), residual covariance (\(S_k\)), Kalman gain (\(K_k\)), and updating the state estimate (\(\hat{x}_k\)) and state covariance (\(P_k\)) using the measurement model (\(H\)) and measurement noise covariance (\(R\)).
+
+### Tracker
+
+The `Tracker` class maintains individual trackers for each object being tracked. It includes the following components:
+
+- **Initialization**: Initializes a tracker with a unique ID, a Kalman Filter instance, and optional bounding box information.
+
+- **Update**: Updates the tracker's state based on the associated measurement obtained from the Kalman Filter.
+
+- **Trail**: Maintains a trail of the object's previous positions for visualization purposes.
+
+## Flow
+
+The overall flow of the object tracking system is as follows:
+
+1. **Initialization**: 
+   - Initialize Kalman Filters for each detected object in the first frame.
+   - Create corresponding trackers for each Kalman Filter.
+
+2. **Frame Processing**:
+   - Iterate through each frame of the video sequence.
+   - Obtain detections or measurements from each frame.
+
+3. **Prediction**:
+   - Predict the next state for each tracker using the Kalman Filter's `predict()` method.
+
+4. **Data Association**:
+   - Match detections to trackers using the Hungarian algorithm based on distance metrics between predicted and detected object positions.
+
+5. **Update**:
+   - For each matched pair of tracker and detection, update the tracker's state using the Kalman Filter's `update()` method.
+   - Create new trackers for unmatched detections.
+
+6. **Trail Update**:
+   - Update the object's trail based on its current estimated position.
+
+7. **Trackers Maintenance**:
+   - Remove trackers that have been lost for too long or have consecutive absence.
+   - Reset trails of removed trackers.
+
+8. **Visualization**:
+   - Draw bounding boxes and IDs on the frame based on tracker information.
+   - Display or save the frame with tracking information.
+
+9. **Loop**:
+   - Repeat the above steps for each frame until the end of the video sequence.
+
+## Conclusion
+
+This implementation provides a robust framework for object tracking using the Kalman Filter algorithm. By combining prediction and update steps with data association and tracker maintenance, it effectively tracks objects in dynamic environments.
+
+For more details, refer to the source code and comments provided in the repository.
