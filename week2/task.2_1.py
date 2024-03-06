@@ -83,33 +83,17 @@ def track_video(cap, start_frame=0, end_frame=None, mode='show', roi=False):
             
         curr_frame = 'frame' + str(frame_id) + '.png'
         if frame_id == 0:
-            # for b in json_data[curr_frame]:
-            for b in gt_boxes[frame_id]:
-                x = int(b['xtl'])
-                y = int(b['ytl'])
-                x_2 = int(b['xbr'])
-                y_2 = int(b['ybr'])
+            for b in json_data[curr_frame]:
+                b = list(map(int, b))
 
-                b = [x, y, x_2, y_2]
-
-                # b = list(map(int, b))
                 current_frames[tracking_id] = b
                 tracking_id += 1
 
         else:
-            # if curr_frame in json_data:
-            if frame_id in gt_boxes:
-                # for b in json_data[curr_frame]:
-                for b in gt_boxes[frame_id]:
-                    x = int(b['xtl'])
-                    y = int(b['ytl'])
-                    x_2 = int(b['xbr'])
-                    y_2 = int(b['ybr'])
-
-                    b = [x, y, x_2, y_2]
-
+            if curr_frame in json_data:
+                for b in json_data[curr_frame]:
                     highest_overlap = {}
-                    # b = list(map(int, b))
+                    b = list(map(int, b))
 
                     for k, prev_b in previous_frames.items():
                         iou = calculate_iou(b, prev_b)
