@@ -8,7 +8,8 @@ We are Team 2 which is composed by:
 ### Week 3
 ``` 
 Our code is organized as:
-├── task1_1.py : optical flow with block matching 
+├── task1_1.py : optical flow with block matching
+├── studies-info.txt - contains the parameters and results of the latest trials for the exhaustive optical flow. The time includes wandb and optuna (wandb taking the most time)
 ├── task1_2_pyflow.py : Can be run as a normal python file. 
 ├── task_2_(1, 2, 3):
 - In order to evaluate the results of tracking, one can run evaluate_tracking/convert_evaluate.sh with two arguments: path to tracking results as json file and path to gt.txt. These will convert the files to the right formats, place the files in the required directories and run the evaluation.
