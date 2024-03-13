@@ -1,0 +1,2 @@
+python evaluate.py --tracked_in $1 --gt_in $2
+python TrackEval\run_mot_challenge.py --GT_FOLDER .\data\gt\mot_challenge\ --TRACKERS_FOLDER data\trackers\mot_challenge\ --BENCHMARK S03 --METRICS HOTA Identity --DO_PREPROC False --TRACKERS_TO_EVAL ioutrack
