@@ -11,21 +11,11 @@ Our code is organized as:
 ```
 ├── task1_1.py : optical flow with block matching 
 ├── task1_2.py : off-the-shelf optical flow  
-├── task1_3.py : object tracking with optical flow
+├── task1_3_optical_flow.ipynb : object tracking with optical flow : just run the notebook 
 
 ├──task_2_1: 
 ├──task_2_2: 
 └──task_2_3:
 ```
 
-- Task 1.1 & 1.3
-Run task1_1.py and task_1_3finetune.py. The latter needs to be run after the first since the first one includes code to extract the frames from the given video. Due to the total size of the extracted frames, these were not added directly to this repository. The user needs to specify the path to the video in the python file.
 
-- In order to evaluate the results of tracking, one can run evaluate_tracking/convert_evaluate.sh with two arguments: path to tracking results as json file and path to gt.txt. These will convert the files to the right formats, place the files in the required directories and run the evaluation.
-
-
-## Conclusion
-
-This implementation provides a robust framework for object tracking using the Kalman Filter algorithm. By combining prediction and update steps with data association and tracker maintenance, it effectively tracks objects in dynamic environments.
-
-For more details, refer to the source code and comments provided in the repository.
