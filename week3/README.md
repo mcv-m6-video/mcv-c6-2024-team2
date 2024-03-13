@@ -23,6 +23,23 @@ python unimatch/main_flow.py --inference_dir unimatch/demo/seq45 --resume unimat
 
 Image _000045_10_flow.png_ shows the result of optical flow by unimatch on the image (uploaded here because the document became uneditable before the deadline :) )
 
+### Results for task 2
+
+Due to lack of time, we haven't finished in time to post in the slides.
+
+| IDF1 / HOTA (SEQ01) | c10   | c11   | c012  | c013  | c014  | c015  | Average |
+|---------------------|-------|-------|-------|-------|-------|-------|---------|
+| Team 2              | 18.72 | 12.36 | 8.97  | 6.83  | 1.94  | 4.22  | 10.773  |
+
+
+| IDF1 / HOTA (SEQ03) | c10   | c11   | c012  | c013  | c014  | c015  | Average |
+|---------------------|-------|-------|-------|-------|-------|-------|---------|
+| Team 2              | 32.57 | 20.92 | 14.38 | 11.75 | 3.26  | 7.91  | 31.808  |
+
+| IDF1 / HOTA (SEQ04) | c10   | c11   | c012  | c013  | c014  | c015  | Average |
+|---------------------|-------|-------|-------|-------|-------|-------|---------|
+| Team 2              | 37.29 | 24.47 | 14.14 | 13.27 | 3.58  | 7.91  | 20.101  |
+
 
 # Task 1.1: Optical flow with block matching 
 
