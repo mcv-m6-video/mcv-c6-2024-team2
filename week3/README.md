@@ -10,7 +10,7 @@ We are Team 2 which is composed by:
 Our code is organized as:
 ├── task1_1.py : optical flow with block matching 
 ├── task1_2_pyflow.py : Can be run as a normal python file. 
-├──task_2_(1, 2, 3):
+├── task_2_(1, 2, 3):
 - In order to evaluate the results of tracking, one can run evaluate_tracking/convert_evaluate.sh with two arguments: path to tracking results as json file and path to gt.txt. These will convert the files to the right formats, place the files in the required directories and run the evaluation.
 ``` 
 
