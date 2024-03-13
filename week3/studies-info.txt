@@ -1,0 +1,471 @@
+
+ Trial #0: time: 12, SCORE: [10.579654222201667, 78.19706699894566] 
+	 {'block_size': 8, 'search_area': 1, 'step': 3, 'similarity': 'MSE', 'threshold': 2}
+
+ Trial #1: time: 13, SCORE: [14.014919476891958, 82.60998753953801] 
+	 {'block_size': 32, 'search_area': 19, 'step': 4, 'similarity': 'SSD', 'threshold': 4}
+
+ Trial #2: time: 13, SCORE: None 
+	 {'block_size': 16, 'search_area': 29, 'step': 1, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #3: time: 13, SCORE: [8.404550416964886, 0.8980596464759031] 
+	 {'block_size': 16, 'search_area': 4, 'step': 4, 'similarity': 'SAD', 'threshold': 4}
+
+ Trial #4: time: 14, SCORE: [7.210499221692348, 0.5508062303907282] 
+	 {'block_size': 128, 'search_area': 4, 'step': 1, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #5: time: 0, SCORE: None 
+	 {'block_size': 4, 'search_area': 10, 'step': 4, 'similarity': 'SSIM', 'threshold': 2}
+
+ Trial #6: time: 27, SCORE: [17.07444712581016, 0.9993999348500694] 
+	 {'block_size': 16, 'search_area': 16, 'step': 2, 'similarity': 'NCC', 'threshold': 1}
+
+ Trial #7: time: 32, SCORE: [18.19871659882686, 0.9739764603014042] 
+	 {'block_size': 4, 'search_area': 21, 'step': 4, 'similarity': 'SSD', 'threshold': 3}
+
+ Trial #8: time: 108, SCORE: None 
+	 {'block_size': 8, 'search_area': 25, 'step': 1, 'similarity': 'SAD', 'threshold': 2}
+
+ Trial #9: time: 90, SCORE: None 
+	 {'block_size': 4, 'search_area': 1, 'step': 3, 'similarity': 'SSD', 'threshold': 3}
+
+ Trial #10: time: 0, SCORE: None 
+	 {'block_size': 32, 'search_area': 4, 'step': 3, 'similarity': 'SSD', 'threshold': 3}
+
+ Trial #11: time: 179, SCORE: [18.554292873024504, 0.8575038146998817] 
+	 {'block_size': 8, 'search_area': 25, 'step': 1, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #12: time: 13, SCORE: [9.497387544092213, 0.7429470913984947] 
+	 {'block_size': 64, 'search_area': 6, 'step': 3, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #13: time: 17, SCORE: [18.169052212836647, 0.8972131259965368] 
+	 {'block_size': 16, 'search_area': 23, 'step': 2, 'similarity': 'SSD', 'threshold': 8}
+
+ Trial #14: time: 13, SCORE: [14.239879058710601, 0.9654683937113172] 
+	 {'block_size': 32, 'search_area': 14, 'step': 4, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #15: time: 222, SCORE: [16.189415559821175, 0.9983305330293003] 
+	 {'block_size': 16, 'search_area': 15, 'step': 1, 'similarity': 'SSIM', 'threshold': 1}
+
+ Trial #16: time: 14, SCORE: [12.959966943870395, 0.8946671352889742] 
+	 {'block_size': 16, 'search_area': 12, 'step': 2, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #17: time: 18, SCORE: [18.212659082985326, 0.9158408627222384] 
+	 {'block_size': 64, 'search_area': 15, 'step': 1, 'similarity': 'NCC', 'threshold': 6}
+
+ Trial #18: time: 13, SCORE: [10.927908852530543, 0.8870677387830679] 
+	 {'block_size': 8, 'search_area': 8, 'step': 4, 'similarity': 'SSD', 'threshold': 4}
+
+ Trial #19: time: 15, SCORE: [16.083933212652394, 0.807747698321532] 
+	 {'block_size': 64, 'search_area': 24, 'step': 1, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #20: time: 34, SCORE: [11.046186763685892, 0.9856477274675536] 
+	 {'block_size': 8, 'search_area': 8, 'step': 4, 'similarity': 'SSIM', 'threshold': 2}
+
+ Trial #21: time: 14, SCORE: [17.415528071552, 0.7883784525177019] 
+	 {'block_size': 128, 'search_area': 19, 'step': 3, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #22: time: 18, SCORE: [9.950643240280302, 0.8099679393762751] 
+	 {'block_size': 64, 'search_area': 8, 'step': 3, 'similarity': 'HAMMING', 'threshold': 3}
+
+ Trial #23: time: 14, SCORE: [19.658091350585998, 0.8852225384470314] 
+	 {'block_size': 32, 'search_area': 25, 'step': 2, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #24: time: 29, SCORE: [19.819145706488637, 0.8392575479623502] 
+	 {'block_size': 32, 'search_area': 31, 'step': 1, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #25: time: 14, SCORE: [16.36116922684452, 0.9669278378795412] 
+	 {'block_size': 8, 'search_area': 17, 'step': 4, 'similarity': 'HAMMING', 'threshold': 4}
+
+ Trial #26: time: 14, SCORE: [8.303227993922969, 0.4632888713631766] 
+	 {'block_size': 128, 'search_area': 7, 'step': 1, 'similarity': 'MSE', 'threshold': 9}
+
+ Trial #27: time: 0, SCORE: None 
+	 {'block_size': 4, 'search_area': 9, 'step': 3, 'similarity': 'SSIM', 'threshold': 2}
+
+ Trial #28: time: 15, SCORE: [14.64428584573275, 0.8867334167709637] 
+	 {'block_size': 16, 'search_area': 15, 'step': 2, 'similarity': 'MSE', 'threshold': 3}
+
+ Trial #29: time: 13, SCORE: [18.79083787395015, 0.7039214257547962] 
+	 {'block_size': 128, 'search_area': 25, 'step': 2, 'similarity': 'SAD', 'threshold': 9}
+
+ Trial #30: time: 13, SCORE: [11.437178999176332, 0.8154692509472456] 
+	 {'block_size': 64, 'search_area': 10, 'step': 4, 'similarity': 'HAMMING', 'threshold': 5}
+
+ Trial #31: time: 14, SCORE: [8.60058597743142, 0.8155764054383048] 
+	 {'block_size': 16, 'search_area': 4, 'step': 1, 'similarity': 'MSE', 'threshold': 4}
+
+ Trial #32: time: 17, SCORE: [7.46443197622101, 0.20277487270046463] 
+	 {'block_size': 8, 'search_area': 2, 'step': 1, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #33: time: 14, SCORE: [10.415097871456078, 0.5447155691189329] 
+	 {'block_size': 128, 'search_area': 19, 'step': 2, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #34: time: 11, SCORE: [10.412059262972257, 0.5992100570919129] 
+	 {'block_size': 128, 'search_area': 31, 'step': 1, 'similarity': 'HAMMING', 'threshold': 4}
+
+ Trial #35: time: 21, SCORE: [14.919018696181075, 0.963471033997977] 
+	 {'block_size': 4, 'search_area': 15, 'step': 4, 'similarity': 'SSD', 'threshold': 8}
+
+ Trial #36: time: 20, SCORE: [25.311944639382514, 0.9997106828741407] 
+	 {'block_size': 8, 'search_area': 26, 'step': 4, 'similarity': 'SAD', 'threshold': 1}
+
+ Trial #37: time: 20, SCORE: [6.9814840021687266, 0.18824258062303909] 
+	 {'block_size': 8, 'search_area': 1, 'step': 1, 'similarity': 'SSIM', 'threshold': 4}
+
+ Trial #38: time: 24, SCORE: [21.46355112805598, 0.9555758910967477] 
+	 {'block_size': 8, 'search_area': 25, 'step': 3, 'similarity': 'HAMMING', 'threshold': 8}
+
+ Trial #39: time: 13, SCORE: [15.592685663639758, 0.9187940404958252] 
+	 {'block_size': 16, 'search_area': 17, 'step': 4, 'similarity': 'SSD', 'threshold': 2}
+
+ Trial #40: time: 13, SCORE: [15.657120687972396, 0.7406861316371491] 
+	 {'block_size': 64, 'search_area': 20, 'step': 4, 'similarity': 'SSD', 'threshold': 3}
+
+ Trial #41: time: 15, SCORE: [7.275359808530169, 0.9594677422120116] 
+	 {'block_size': 16, 'search_area': 2, 'step': 2, 'similarity': 'SSIM', 'threshold': 1}
+
+ Trial #42: time: 219, SCORE: [14.433875189405944, 0.9660577434121419] 
+	 {'block_size': 4, 'search_area': 14, 'step': 2, 'similarity': 'NCC', 'threshold': 9}
+
+ Trial #43: time: 15, SCORE: [17.130345081036936, 0.9996099576525451] 
+	 {'block_size': 8, 'search_area': 18, 'step': 4, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #44: time: 14, SCORE: [8.233784954614283, 0.8660225967390746] 
+	 {'block_size': 64, 'search_area': 5, 'step': 4, 'similarity': 'SSIM', 'threshold': 9}
+
+ Trial #45: time: 124, SCORE: [13.879042826753786, 0.9411378949714541] 
+	 {'block_size': 4, 'search_area': 13, 'step': 1, 'similarity': 'SAD', 'threshold': 9}
+
+ Trial #46: time: 37, SCORE: [19.67112415972679, 0.9115589692595196] 
+	 {'block_size': 16, 'search_area': 27, 'step': 1, 'similarity': 'HAMMING', 'threshold': 4}
+
+ Trial #47: time: 63, SCORE: [17.011760617713225, 0.9770089323983747] 
+	 {'block_size': 4, 'search_area': 17, 'step': 2, 'similarity': 'SAD', 'threshold': 6}
+
+ Trial #48: time: 14, SCORE: [7.5418276606551675, 0.2046522193838188] 
+	 {'block_size': 16, 'search_area': 2, 'step': 1, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #49: time: 14, SCORE: [12.307666333504207, 0.9886759133848818] 
+	 {'block_size': 16, 'search_area': 10, 'step': 4, 'similarity': 'SSD', 'threshold': 7}
+
+ Trial #50: time: 14, SCORE: [7.497719318879196, 0.19549693966773535] 
+	 {'block_size': 8, 'search_area': 2, 'step': 4, 'similarity': 'SAD', 'threshold': 9}
+
+ Trial #51: time: 14, SCORE: [7.517925582846493, 0.82934575753939] 
+	 {'block_size': 8, 'search_area': 3, 'step': 4, 'similarity': 'NCC', 'threshold': 5}
+
+ Trial #52: time: 74, SCORE: [31.299353021630033, 1.0] 
+	 {'block_size': 32, 'search_area': 31, 'step': 1, 'similarity': 'NCC', 'threshold': 9}
+
+ Trial #53: time: 16, SCORE: [7.106514290329929, 0.6631298540984449] 
+	 {'block_size': 64, 'search_area': 2, 'step': 2, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #54: time: 13, SCORE: [15.286723362639872, 0.8735148387539219] 
+	 {'block_size': 32, 'search_area': 17, 'step': 1, 'similarity': 'HAMMING', 'threshold': 2}
+
+ Trial #55: time: 21, SCORE: [23.027427391659348, 0.9606635863322304] 
+	 {'block_size': 8, 'search_area': 29, 'step': 4, 'similarity': 'SSD', 'threshold': 4}
+
+ Trial #56: time: 13, SCORE: [6.916667875953675, 0.166417353884136] 
+	 {'block_size': 128, 'search_area': 1, 'step': 1, 'similarity': 'SSIM', 'threshold': 9}
+
+ Trial #57: time: 14, SCORE: [6.967341688214524, 0.3827365542544619] 
+	 {'block_size': 128, 'search_area': 2, 'step': 4, 'similarity': 'SSIM', 'threshold': 5}
+
+ Trial #58: time: 118, SCORE: [8.751959967398795, 0.9389133677370686] 
+	 {'block_size': 8, 'search_area': 5, 'step': 1, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #59: time: 16, SCORE: [16.083933212652394, 0.7178965144787148] 
+	 {'block_size': 64, 'search_area': 24, 'step': 1, 'similarity': 'MSE', 'threshold': 4}
+
+ Trial #60: time: 12, SCORE: [7.461942088541876, 0.9642854081300255] 
+	 {'block_size': 16, 'search_area': 3, 'step': 4, 'similarity': 'NCC', 'threshold': 1}
+
+ Trial #61: time: 0, SCORE: None 
+	 {'block_size': 4, 'search_area': 21, 'step': 2, 'similarity': 'SSIM', 'threshold': 3}
+
+ Trial #62: time: 20, SCORE: [6.9814840021687266, 0.18434858641795396] 
+	 {'block_size': 8, 'search_area': 1, 'step': 1, 'similarity': 'SSIM', 'threshold': 5}
+
+ Trial #63: time: 14, SCORE: [7.397452884208998, 0.9970489653162343] 
+	 {'block_size': 8, 'search_area': 2, 'step': 4, 'similarity': 'NCC', 'threshold': 1}
+
+ Trial #64: time: 32, SCORE: [18.558385483619983, 0.9750565775712792] 
+	 {'block_size': 32, 'search_area': 17, 'step': 2, 'similarity': 'SSIM', 'threshold': 5}
+
+ Trial #65: time: 13, SCORE: [16.19933531698293, 0.9802857167349598] 
+	 {'block_size': 16, 'search_area': 14, 'step': 2, 'similarity': 'SAD', 'threshold': 3}
+
+ Trial #66: time: 14, SCORE: [7.497719318879196, 0.9983583931969757] 
+	 {'block_size': 8, 'search_area': 2, 'step': 4, 'similarity': 'SAD', 'threshold': 1}
+
+ Trial #67: time: 14, SCORE: [34.262421808682966, 0.8164593584446311] 
+	 {'block_size': 128, 'search_area': 32, 'step': 2, 'similarity': 'NCC', 'threshold': 1}
+
+ Trial #68: time: 19, SCORE: [7.563758710621371, 0.5073186517393317] 
+	 {'block_size': 128, 'search_area': 4, 'step': 1, 'similarity': 'HAMMING', 'threshold': 3}
+
+ Trial #69: time: 18, SCORE: [12.812695522948603, 0.952031220532515] 
+	 {'block_size': 16, 'search_area': 10, 'step': 1, 'similarity': 'SAD', 'threshold': 4}
+
+ Trial #70: time: 37, SCORE: [18.855688958747834, 0.9990248941313629] 
+	 {'block_size': 4, 'search_area': 21, 'step': 4, 'similarity': 'SSD', 'threshold': 1}
+
+ Trial #71: time: 31, SCORE: [16.851825264068438, 0.9929770946559913] 
+	 {'block_size': 8, 'search_area': 17, 'step': 4, 'similarity': 'NCC', 'threshold': 2}
+
+ Trial #72: time: 14, SCORE: [8.654226457729969, 0.7057259073842302] 
+	 {'block_size': 32, 'search_area': 4, 'step': 2, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #73: time: 22, SCORE: [18.82637124237219, 0.8816071459186997] 
+	 {'block_size': 16, 'search_area': 25, 'step': 2, 'similarity': 'MSE', 'threshold': 9}
+
+ Trial #74: time: 32, SCORE: [18.550013654398793, 0.9498152656574143] 
+	 {'block_size': 4, 'search_area': 20, 'step': 4, 'similarity': 'SSD', 'threshold': 3}
+
+ Trial #75: time: 18, SCORE: [11.007697965636165, 0.9427645001457301] 
+	 {'block_size': 4, 'search_area': 9, 'step': 4, 'similarity': 'SSD', 'threshold': 6}
+
+ Trial #76: time: 25, SCORE: [15.880487927508723, 0.9904696795652099] 
+	 {'block_size': 16, 'search_area': 15, 'step': 4, 'similarity': 'SSIM', 'threshold': 6}
+
+ Trial #77: time: 14, SCORE: [8.957085786717947, 0.5492139146535909] 
+	 {'block_size': 128, 'search_area': 10, 'step': 4, 'similarity': 'SSD', 'threshold': 4}
+
+ Trial #78: time: 24, SCORE: [21.46355112805598, 0.9624016321772079] 
+	 {'block_size': 8, 'search_area': 25, 'step': 3, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #79: time: 23, SCORE: [16.145681261282267, 0.9574639532292077] 
+	 {'block_size': 8, 'search_area': 17, 'step': 2, 'similarity': 'HAMMING', 'threshold': 5}
+
+ Trial #80: time: 14, SCORE: [8.386328681628013, 0.6619125790800144] 
+	 {'block_size': 128, 'search_area': 6, 'step': 3, 'similarity': 'SAD', 'threshold': 3}
+
+ Trial #81: time: 53, SCORE: [24.444797739272, 0.9970703962144462] 
+	 {'block_size': 16, 'search_area': 26, 'step': 2, 'similarity': 'NCC', 'threshold': 4}
+
+ Trial #82: time: 13, SCORE: [9.497387544092213, 0.7430199564524148] 
+	 {'block_size': 64, 'search_area': 6, 'step': 3, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #83: time: 14, SCORE: [8.334270033760678, 0.7768657739983198] 
+	 {'block_size': 16, 'search_area': 4, 'step': 2, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #84: time: 13, SCORE: [16.692017823563063, 0.7543890479537778] 
+	 {'block_size': 64, 'search_area': 25, 'step': 3, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #85: time: 15, SCORE: [12.067611212257102, 0.7295313491179042] 
+	 {'block_size': 64, 'search_area': 12, 'step': 4, 'similarity': 'HAMMING', 'threshold': 1}
+
+ Trial #86: time: 13, SCORE: [8.0174370308926, 0.5478487664374989] 
+	 {'block_size': 128, 'search_area': 7, 'step': 4, 'similarity': 'SSD', 'threshold': 2}
+
+ Trial #87: time: 29, SCORE: [18.855688958747834, 0.9749729970682531] 
+	 {'block_size': 4, 'search_area': 21, 'step': 4, 'similarity': 'SSD', 'threshold': 2}
+
+ Trial #88: time: 31, SCORE: [16.03933704609616, 0.841794966310628] 
+	 {'block_size': 16, 'search_area': 19, 'step': 1, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #89: time: 14, SCORE: [7.119781721816279, 0.6182578394225658] 
+	 {'block_size': 128, 'search_area': 3, 'step': 4, 'similarity': 'NCC', 'threshold': 4}
+
+ Trial #90: time: 13, SCORE: [8.233784954614283, 0.8850789514290123] 
+	 {'block_size': 64, 'search_area': 5, 'step': 4, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #91: time: 14, SCORE: [9.497387544092213, 0.7435128671112864] 
+	 {'block_size': 64, 'search_area': 6, 'step': 3, 'similarity': 'HAMMING', 'threshold': 4}
+
+ Trial #92: time: 14, SCORE: [10.415097871456078, 0.5896497333996262] 
+	 {'block_size': 128, 'search_area': 19, 'step': 2, 'similarity': 'HAMMING', 'threshold': 2}
+
+ Trial #93: time: 12, SCORE: [7.277673614594303, 0.17921160011658407] 
+	 {'block_size': 16, 'search_area': 2, 'step': 2, 'similarity': 'NCC', 'threshold': 8}
+
+ Trial #94: time: 13, SCORE: [11.631278354427108, 0.8597947777187237] 
+	 {'block_size': 16, 'search_area': 9, 'step': 2, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #95: time: 25, SCORE: [19.819145706488637, 0.9266270337922403] 
+	 {'block_size': 32, 'search_area': 31, 'step': 1, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #96: time: 96, SCORE: [18.537707827323224, 0.9955530886210503] 
+	 {'block_size': 8, 'search_area': 19, 'step': 4, 'similarity': 'SSIM', 'threshold': 4}
+
+ Trial #97: time: 30, SCORE: [10.611587934359596, 0.9361102062509644] 
+	 {'block_size': 8, 'search_area': 8, 'step': 2, 'similarity': 'NCC', 'threshold': 9}
+
+ Trial #98: time: 14, SCORE: [14.355658504196672, 0.8257389373703431] 
+	 {'block_size': 32, 'search_area': 15, 'step': 3, 'similarity': 'MSE', 'threshold': 5}
+
+ Trial #99: time: 15, SCORE: [8.145287045467917, 0.957763985804173] 
+	 {'block_size': 4, 'search_area': 4, 'step': 2, 'similarity': 'HAMMING', 'threshold': 2}
+
+ Trial #100: time: 57, SCORE: [16.338978057694206, 0.9681794023351107] 
+	 {'block_size': 4, 'search_area': 16, 'step': 2, 'similarity': 'SAD', 'threshold': 6}
+
+ Trial #101: time: 31, SCORE: [16.08152375330773, 0.9143578445659815] 
+	 {'block_size': 64, 'search_area': 15, 'step': 1, 'similarity': 'SSIM', 'threshold': 3}
+
+ Trial #102: time: 13, SCORE: [6.970660484389852, 0.18718603734119704] 
+	 {'block_size': 4, 'search_area': 1, 'step': 1, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #103: time: 13, SCORE: [17.218776998267543, 0.9379039724312925] 
+	 {'block_size': 64, 'search_area': 26, 'step': 4, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #104: time: 13, SCORE: [7.357227443178544, 0.7950563204005007] 
+	 {'block_size': 16, 'search_area': 2, 'step': 3, 'similarity': 'MSE', 'threshold': 3}
+
+ Trial #105: time: 13, SCORE: [7.67450520989219, 0.9641525365611123] 
+	 {'block_size': 16, 'search_area': 3, 'step': 1, 'similarity': 'NCC', 'threshold': 1}
+
+ Trial #106: time: 15, SCORE: [7.67450520989219, 0.9473057074768118] 
+	 {'block_size': 16, 'search_area': 3, 'step': 1, 'similarity': 'NCC', 'threshold': 3}
+
+ Trial #107: time: 14, SCORE: [7.618592581009469, 0.4498495550945531] 
+	 {'block_size': 128, 'search_area': 4, 'step': 4, 'similarity': 'HAMMING', 'threshold': 9}
+
+ Trial #108: time: 19, SCORE: [10.028929742833478, 0.5676466302055652] 
+	 {'block_size': 128, 'search_area': 19, 'step': 1, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #109: time: 49, SCORE: [22.76867453336484, 0.9971604059869357] 
+	 {'block_size': 8, 'search_area': 24, 'step': 4, 'similarity': 'NCC', 'threshold': 7}
+
+ Trial #110: time: 14, SCORE: [7.984236117869342, 0.8250981535138101] 
+	 {'block_size': 8, 'search_area': 3, 'step': 2, 'similarity': 'MSE', 'threshold': 8}
+
+ Trial #111: time: 13, SCORE: [7.310815390303034, 0.9561630977077511] 
+	 {'block_size': 8, 'search_area': 2, 'step': 2, 'similarity': 'NCC', 'threshold': 3}
+
+ Trial #112: time: 13, SCORE: [8.606879736170399, 0.7592710065664272] 
+	 {'block_size': 128, 'search_area': 6, 'step': 1, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #113: time: 34, SCORE: [16.51413972964333, 0.9275528485949903] 
+	 {'block_size': 16, 'search_area': 20, 'step': 1, 'similarity': 'MSE', 'threshold': 1}
+
+ Trial #114: time: 14, SCORE: [17.752503994713432, 0.9720626810910898] 
+	 {'block_size': 8, 'search_area': 19, 'step': 4, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #115: time: 0, SCORE: None 
+	 {'block_size': 4, 'search_area': 4, 'step': 1, 'similarity': 'SSIM', 'threshold': 8}
+
+ Trial #116: time: 19, SCORE: [12.411713462309276, 0.9959988513038558] 
+	 {'block_size': 4, 'search_area': 10, 'step': 4, 'similarity': 'HAMMING', 'threshold': 4}
+
+ Trial #117: time: 14, SCORE: [13.683599200648175, 0.6875932244072214] 
+	 {'block_size': 128, 'search_area': 19, 'step': 2, 'similarity': 'SAD', 'threshold': 9}
+
+ Trial #118: time: 14, SCORE: [7.576402787997824, 0.4149921991530509] 
+	 {'block_size': 64, 'search_area': 2, 'step': 2, 'similarity': 'MSE', 'threshold': 5}
+
+ Trial #119: time: 14, SCORE: [7.068235995479945, 0.20823975174447512] 
+	 {'block_size': 4, 'search_area': 1, 'step': 1, 'similarity': 'MSE', 'threshold': 4}
+
+ Trial #120: time: 14, SCORE: [13.036291724837094, 0.7495799543950487] 
+	 {'block_size': 64, 'search_area': 15, 'step': 1, 'similarity': 'MSE', 'threshold': 2}
+
+ Trial #121: time: 14, SCORE: [7.216866645472135, 0.7497921202873454] 
+	 {'block_size': 64, 'search_area': 3, 'step': 4, 'similarity': 'NCC', 'threshold': 3}
+
+ Trial #122: time: 14, SCORE: [9.446962233579248, 0.6907950006000652] 
+	 {'block_size': 64, 'search_area': 6, 'step': 3, 'similarity': 'MSE', 'threshold': 3}
+
+ Trial #123: time: 16, SCORE: [8.199266696788364, 0.8963644624273492] 
+	 {'block_size': 16, 'search_area': 4, 'step': 1, 'similarity': 'NCC', 'threshold': 9}
+
+ Trial #124: time: 13, SCORE: [7.702482270655633, 0.9225958818385996] 
+	 {'block_size': 16, 'search_area': 3, 'step': 2, 'similarity': 'NCC', 'threshold': 5}
+
+ Trial #125: time: 56, SCORE: [9.918300754353833, 0.8506845028888851] 
+	 {'block_size': 4, 'search_area': 7, 'step': 1, 'similarity': 'MSE', 'threshold': 6}
+
+ Trial #126: time: 14, SCORE: [7.380717747322272, 0.8503308930683903] 
+	 {'block_size': 8, 'search_area': 2, 'step': 1, 'similarity': 'SSD', 'threshold': 1}
+
+ Trial #127: time: 14, SCORE: [7.331332885460077, 0.8983961115778285] 
+	 {'block_size': 16, 'search_area': 2, 'step': 4, 'similarity': 'NCC', 'threshold': 6}
+
+ Trial #128: time: 14, SCORE: [7.050657045293189, 0.16233905395442932] 
+	 {'block_size': 128, 'search_area': 2, 'step': 1, 'similarity': 'SSIM', 'threshold': 9}
+
+ Trial #129: time: 14, SCORE: [8.044251091630567, 0.5459714197541448] 
+	 {'block_size': 128, 'search_area': 7, 'step': 1, 'similarity': 'HAMMING', 'threshold': 1}
+
+ Trial #130: time: 15, SCORE: [7.67450520989219, 0.8918168258268041] 
+	 {'block_size': 16, 'search_area': 3, 'step': 1, 'similarity': 'NCC', 'threshold': 7}
+
+ Trial #131: time: 14, SCORE: [12.704819353063654, 0.7716794966310628] 
+	 {'block_size': 128, 'search_area': 11, 'step': 3, 'similarity': 'NCC', 'threshold': 6}
+
+ Trial #132: time: 17, SCORE: [11.156598174063461, 0.5659107274504089] 
+	 {'block_size': 128, 'search_area': 19, 'step': 1, 'similarity': 'MSE', 'threshold': 4}
+
+ Trial #133: time: 14, SCORE: [6.927343285418891, 0.17483969688137568] 
+	 {'block_size': 8, 'search_area': 1, 'step': 3, 'similarity': 'HAMMING', 'threshold': 9}
+
+ Trial #134: time: 14, SCORE: [7.026010363889344, 0.1761212645944417] 
+	 {'block_size': 64, 'search_area': 2, 'step': 3, 'similarity': 'SSIM', 'threshold': 8}
+
+ Trial #135: time: 14, SCORE: [7.579379552072862, 0.7000360039089958] 
+	 {'block_size': 64, 'search_area': 2, 'step': 1, 'similarity': 'MSE', 'threshold': 3}
+
+ Trial #136: time: 15, SCORE: [7.922077012700558, 0.9244732285219538] 
+	 {'block_size': 8, 'search_area': 3, 'step': 3, 'similarity': 'SAD', 'threshold': 7}
+
+ Trial #137: time: 157, SCORE: [23.05605147561513, 0.9906475560203679] 
+	 {'block_size': 16, 'search_area': 24, 'step': 2, 'similarity': 'SSIM', 'threshold': 9}
+
+ Trial #138: time: 13, SCORE: [7.292456614781229, 0.43497651173555985] 
+	 {'block_size': 128, 'search_area': 3, 'step': 4, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #139: time: 39, SCORE: [8.78394905779505, 0.9809243575016716] 
+	 {'block_size': 16, 'search_area': 5, 'step': 1, 'similarity': 'SSIM', 'threshold': 1}
+
+ Trial #140: time: 14, SCORE: [8.334270033760678, 0.8996819654705368] 
+	 {'block_size': 16, 'search_area': 4, 'step': 2, 'similarity': 'HAMMING', 'threshold': 2}
+
+ Trial #141: time: 52, SCORE: [13.736212856023139, 0.89892545476366] 
+	 {'block_size': 8, 'search_area': 14, 'step': 1, 'similarity': 'MSE', 'threshold': 2}
+
+ Trial #142: time: 13, SCORE: [7.5933001706989645, 0.7797675176161983] 
+	 {'block_size': 16, 'search_area': 3, 'step': 4, 'similarity': 'HAMMING', 'threshold': 6}
+
+ Trial #143: time: 172, SCORE: [20.02574171547417, 0.8667062423920311] 
+	 {'block_size': 8, 'search_area': 29, 'step': 1, 'similarity': 'MSE', 'threshold': 6}
+
+ Trial #144: time: 14, SCORE: [10.931412134424967, 0.5556496133865962] 
+	 {'block_size': 128, 'search_area': 25, 'step': 3, 'similarity': 'HAMMING', 'threshold': 9}
+
+ Trial #145: time: 14, SCORE: [6.96672505683025, 0.3972324138049274] 
+	 {'block_size': 128, 'search_area': 2, 'step': 4, 'similarity': 'NCC', 'threshold': 4}
+
+ Trial #146: time: 0, SCORE: None 
+	 {'block_size': 4, 'search_area': 31, 'step': 1, 'similarity': 'SSIM', 'threshold': 9}
+
+ Trial #147: time: 6, SCORE: [7.155839070907723, 0.6394658562929689] 
+	 {'block_size': 64, 'search_area': 2, 'step': 4, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #148: time: 87, SCORE: None 
+	 {'block_size': 128, 'search_area': 2, 'step': 2, 'similarity': 'SSIM', 'threshold': 7}
+
+ Trial #149: time: 91, SCORE: None 
+	 {'block_size': 16, 'search_area': 3, 'step': 3, 'similarity': 'HAMMING', 'threshold': 2}
+
+ Trial #150: time: 11, SCORE: None 
+	 {'block_size': 128, 'search_area': 24, 'step': 1, 'similarity': 'SAD', 'threshold': 4}
+
+ Trial #151: time: 0, SCORE: None 
+	 {'block_size': 128, 'search_area': 7, 'step': 2, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #152: time: 0, SCORE: [10.628150239232117, 0.7696499905704048] 
+	 {'block_size': 64, 'search_area': 9, 'step': 3, 'similarity': 'HAMMING', 'threshold': 3}
+
+ Trial #153: time: 1, SCORE: [11.226184222101567, 0.9506039227116087] 
+	 {'block_size': 32, 'search_area': 8, 'step': 2, 'similarity': 'NCC', 'threshold': 2}
+
+ Trial #154: time: 14, SCORE: None 
+	 {'block_size': 4, 'search_area': 14, 'step': 1, 'similarity': 'MSE', 'threshold': 6}
+
+ Trial #155: time: 101, SCORE: None 
+	 {'block_size': 8, 'search_area': 8, 'step': 1, 'similarity': 'HAMMING', 'threshold': 7}
+
+ Trial #156: time: 10, SCORE: None 
+	 {'block_size': 8, 'search_area': 5, 'step': 1, 'similarity': 'MSE', 'threshold': 5}
