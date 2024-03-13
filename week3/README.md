@@ -21,6 +21,7 @@ Our code is organized as:
 - Task 1.1 & 1.3
 Run task1_1.py and task_1_3finetune.py. The latter needs to be run after the first since the first one includes code to extract the frames from the given video. Due to the total size of the extracted frames, these were not added directly to this repository. The user needs to specify the path to the video in the python file.
 
+- In order to evaluate the results of tracking, one can run evaluate_tracking/convert_evaluate.sh with two arguments: path to tracking results as json file and path to gt.txt. These will convert the files to the right formats, place the files in the required directories and run the evaluation.
 
 
 ## Conclusion
