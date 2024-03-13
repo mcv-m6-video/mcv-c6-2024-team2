@@ -81,6 +81,6 @@ flow_three_step = block_matching(
 
 Due to lack of time, we haven't finished in time to post in the slides
 
-| IDF1 / HOTA (SEQ03) | Camera | c10   | c11   | c012  | c013  | c014  | c015  | Average |
+| IDF1 / HOTA (SEQ03) | c10   | c11   | c012  | c013  | c014  | c015  | Average |
 |---------------------|--------|-------|-------|-------|-------|-------|-------|---------|
-| Team 2              | 32.57  | 20.92 | 14.38 | 11.75 | 3.26  | 7.91  | 63.14 | 31.808  |
+| Team 2              | 20.92 | 14.38 | 11.75 | 3.26  | 7.91  | 63.14 | 31.808  |
