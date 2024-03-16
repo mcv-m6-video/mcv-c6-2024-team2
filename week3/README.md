@@ -23,8 +23,6 @@ In order to run optical flow with unimatch, please use the command:
 python unimatch/main_flow.py --inference_dir unimatch/demo/seq45 --resume unimatch/pretrained/gmflow-scale2-regrefine6-mixdata-train320x576-4e7b215d.pth --output_path output/gmflow-scale2-regrefine6-davis --padding_factor 32 --upsample_factor 4 --num_scales 2 --attn_splits_list 2 8 --corr_radius_list -1 4 --prop_radius_list -1 1 --reg_refine --num_reg_refine 6
 ``` 
 
-Image _000045_10_flow.png_ shows the result of optical flow by unimatch on the image (uploaded here because the document became uneditable before the deadline :) )
-
 # Task 1.1: Optical flow with block matching 
 
 Overview
