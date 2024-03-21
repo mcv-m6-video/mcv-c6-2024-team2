@@ -36,8 +36,7 @@ Thus, our algorithm does the reidentification of the cars from one camera to ano
 In order to perform multitracking, one must run the track.py file with the desired sequence to perform the initial tracking, then multitrack.py with the same sequence to perform the actual multitracking. The results will be in the directory  given to us used to retrieve data from for this course. For multiple reasons, the directory is not present here.
 
 An example on how to run the code can be seen below:
-'''
+```
 python track.py seq
 python multitrack.py seq
-
-'''
+```
