@@ -12,3 +12,5 @@ Link to the presentation: https://docs.google.com/presentation/d/1HLrGZbPCgnSNtd
 We applied a mask to isolate the foreground, ensuring that only relevant objects, such as nearby vehicles, are included for annotations, while distant vehicles are excluded.
 Subsequently, we proceed with vehicle annotation by assessing if the lower right corner of a bounding box falls within the defined ROI, incrementing a time counter and setting a flag indicating the vehicle's presence within the region. We check if the lower right corner of a bounding box is between the 2 lines. If it is, I add 1 to the time and set a flag that it was inside, and then we calculate the speed.
 Here we have some examples in which we can see that the cars are detected correctly. Using YOLOv8, had some issues with the bigs cars and with an extra class (truck) that the code was not identifying.
+
+To run the code, we run python3 task1.py and put input video path, output paths for video and speed data, mask path, and line coordinates, using a command-line interface.
