@@ -22,3 +22,13 @@ python task1.py -i ./data/custom/tunnel_10fps.mp4 -o ./data/custom/out_tunnel10_
 python task1.py -i ./data/custom/zoom_10fps.mp4 -o ./data/custom/out_zoom10fps_15.avi -ot ./data/custom/out_zoom_15.txt -m ./data/custom/mask_zoom.png -r 15 -lb 0 615 1919 615 -lt 0 950 1919 950
 
 python task1.py -i ./data/custom/radar.mov -o ./data/custom/out_radar.avi -ot ./data/custom/out_radar_speed.txt -m ./data/custom/mask_radar.png -r 50 -lb 1019 1079 1919 285 -lt 0 1015 1260 0
+
+### Task 2 : Multi Camera Tracking
+For this task we have created an offline pipeline consisting of two parts. First, we create the database containing all the identified objects (cars) as feature vectors and their corresponding frame_id, track_id sequence, camera and whether they have been reidentified or not. In the second part, pe perform reidentification based on a few assumptions:
+
+- Tracking within one camera works perfectly 
+- A car seen by a camera in a frame should be visible to another camera within a certain timeframe
+- All cars are similar to each other to a certain degree
+- Mapping of tracking IDs is transitive
+
+Thus, our algorithm does the reidentification of the cars from one camera to another by performing similarity search between each object in a camera and all the other objects within a timeframe in all the other camera. The tracking ID of the object that yields the highest similarity score, if the highest similarity score is above a certain threshold, gets assigned to the current object.
