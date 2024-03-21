@@ -12,7 +12,7 @@ Link to the presentation: https://docs.google.com/presentation/d/1HLrGZbPCgnSNtd
 We applied a mask to isolate the foreground, ensuring that only relevant objects, such as nearby vehicles, are included for annotations, while distant vehicles are excluded.
 Subsequently, we proceed with vehicle annotation by assessing if the lower right corner of a bounding box falls within the defined ROI (between the 2 lines), incrementing a time counter and setting a flag indicating the vehicle's presence within the region. When the corner leaves the region and it was previously flagged as inside, the speed can be calculated based on the real measurement of the distance between the two lines and the time spent between them.
 
-To run the code, we run python task1.py and put input video path, output paths for video and speed data, mask path, and line coordinates, using a command-line interface.
+To run the code, we run python task1.py and put input video path, output paths for video and speed data, mask path, real life measurements between the 2 lines and line coordinates, using a command-line interface.
 
 To replicate the same results use:
 python task1.py -i ./data/vdo.avi -o ./data/out-orig.avi -ot ./data/seq3c10_speed.txt -m ./data/roi-edited.png -r 62 -lt 0 855 1919 855 -lb 0 297 1919 297
