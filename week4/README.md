@@ -32,3 +32,12 @@ For this task we have created an offline pipeline consisting of two parts. First
 - Mapping of tracking IDs is transitive
 
 Thus, our algorithm does the reidentification of the cars from one camera to another by performing similarity search between each object in a camera and all the other objects within a timeframe in all the other camera. The tracking ID of the object that yields the highest similarity score, if the highest similarity score is above a certain threshold, gets assigned to the current object.
+
+In order to perform multitracking, one must run the track.py file with the desired sequence to perform the initial tracking, then multitrack.py with the same sequence to perform the actual multitracking. The results will be in the directory  given to us used to retrieve data from for this course. For multiple reasons, the directory is not present here.
+
+An example on how to run the code can be seen below:
+'''
+python track.py seq
+python multitrack.py seq
+
+'''
