@@ -4,8 +4,8 @@ import os
 import json
 from utils import track_to_file, get_bboxes
 from sort.sort import Sort
+import argparse
 
-seq = 'S01'
 det_name_in = 'det/det_yolo3.txt'
 dir_path = './AICity/train'
 
@@ -34,4 +34,10 @@ def track_sequence(dir_path, seq, det_name_in):
         tracked = get_tracked_bboxes(bboxex_per_camera)
         track_to_file(tracked, os.path.join(seq, camdir, det_name_out))
 
-# track_sequence(dir_path, seq, det_name_in)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Run SORT tracking and save files for given sequence.")
+    parser.add_argument("seq", choices=["S01", "S03", "S04"], help="Sequence option (S01, S03, S04)")
+    args = parser.parse_args()
+
+    track_sequence(dir_path, args.seq, det_name_in)
