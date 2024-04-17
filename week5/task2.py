@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 import wandb
 import numpy
 import matplotlib.pyplot as plt
-from train import *
+from orig_train import *
 
 
 class EarlyStopper:
