@@ -11,5 +11,6 @@ We are Team 2 which is composed by:
 run python3 TASK3.py
 
 For task 3.1 set crop_size = None
+
 For task 3.2 use Optuna to determine the optimal crop size by evaluating different values within the specified range. 
 
