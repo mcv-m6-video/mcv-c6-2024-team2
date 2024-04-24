@@ -21,3 +21,6 @@ run train_task2.py with: --frames_dir <frames directory>
                          --validate-every 1 
             *(OPTIONAL)* --clip-length 1 for 2D models
 ```
+
+* For Task 2 based on modified baseline 
+In order to run this task, one needs to remove the _\_task2\_baseline_ from the _train\_task2\_baseline_.py_ and _HMDB51Dataset\_task2\_baseline.py_ files, replace them in the _src_ directory of the [baseline code](https://github.com/aclapes/MCV-M6-ActionClassificationTask/tree/main) and then run it according to the instructions provided in the README of the baseline code.
