@@ -1,6 +1,6 @@
 We are Team 2 which is composed by:
 - Diana Tat : dianatat120@gmail.com
-- Miruna-Diana Jarda : mirunajrda@gmail.com
+- Miruna-Diana Jarda: MirunaDiana.Jarda@autonoma.cat
 - Beatrice Anamaria Peptenaru : peptenaru.beatrice@gmail.com 
 - Gunjan Paul : gunjan.mtbpaul@gmail.com
 
