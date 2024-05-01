@@ -1,0 +1,18 @@
+experiment_name: "late_fusion"
+frames_dir: "/ghome/group04/c6-diana/week5/frames"
+annotations_dir: "/ghome/group04/c6-diana/week5/data/hmdb51/testTrainMulti_601030_splits"
+clip_length: 8
+crop_size: 240
+temporal_stride: 8
+load_pretrain: true
+optimizer_name: "adam"
+lr: 0.0001
+epochs: 50
+batch_size: 16
+batch_size_eval: 32
+validate_every: 5
+num_workers: 2
+fusion_type: "late_fusion"
+modalities:
+  - "temporal"
+  - "spatial"
