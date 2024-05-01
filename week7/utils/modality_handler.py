@@ -3,6 +3,8 @@ import torch.nn as nn
 from torchvision.models import resnet50
 from typing import List
 import warnings
+from HDGCN import Model
+from HDGCN import Graph
 
 warnings.filterwarnings("ignore")
 
@@ -31,7 +33,7 @@ class Temporal_Modality(nn.Module):
 
 class Spatial_Modality(nn.Module):
     def __init__(
-        self, model_name: str = "resnet-50", load_pretrain: bool = True
+            self, model_name: str = "resnet-50", load_pretrain: bool = True
     ) -> None:
         super(Spatial_Modality, self).__init__()
         # LOAD PRETRAINED RESNET-50
@@ -68,11 +70,14 @@ class Spatial_Modality(nn.Module):
 device = "cuda" if torch.cuda.is_available() else "cpu"
 temporal_model = Temporal_Modality().to(device)
 spatial_model = Spatial_Modality().to(device)
+keypoints_model = Model({"num_person": 5,
+                         "graph": "graph.ntu_rgb_d_hierarchy.Graph",
+                         "graph_args": {"labeling_mode": 'spatial', "CoM": 0}}).to(device)
 
 
 def get_modality_data(
-    batched_clip: torch.Tensor,
-    modality_names: List[str],
+        batched_clip: torch.Tensor,
+        modality_names: List[str],
 ):
     aggregated_features = []
     for modality_name in modality_names:
@@ -80,6 +85,8 @@ def get_modality_data(
             aggregated_features.append(temporal_model(batched_clip))
         elif modality_name == "spatial":
             aggregated_features.append(spatial_model(batched_clip))
+        elif modality_name == 'keypoints':
+            aggregated_features.append(keypoints_model(batched_clip))
         else:
             raise NotImplementedError(f"{modality_name} not supported.")
 
@@ -87,7 +94,6 @@ def get_modality_data(
 
 
 if __name__ == "__main__":
-
     sample_data = torch.randn(16, 3, 8, 240, 240)
 
     print("=====================================")

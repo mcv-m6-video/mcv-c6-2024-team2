@@ -2,7 +2,6 @@
 import torch
 import torch.nn as nn
 
-
 ### DEFINE EMBEDDING SHAPE
 FINAL_INPUT_EMBEDDING_DIM = 2048
 # TODO: DEFINE EMBEDDING OF EACH MODALITY HERE
@@ -10,50 +9,15 @@ MODALITY_1_EMBEDDING_DIM = 128  # Example dimension for modality 1
 MODALITY_2_EMBEDDING_DIM = 128  # Example dimension for modality 2
 MODALITY_3_EMBEDDING_DIM = 128  # Example dimension for modality 3
 
-
-# class TemporalPathway(nn.Module):
-#     def __init__(self, input_shape: int):
-#         super(TemporalPathway, self).__init__()
-#         # Define the architecture for the temporal pathway
-#         self.temporal_pathway = nn.Sequential(
-#             nn.Linear(input_shape, 512),
-#             nn.ReLU(),
-#             nn.Linear(512, 256),
-#             nn.ReLU(),
-#             nn.Linear(256, FINAL_INPUT_EMBEDDING_DIM),
-#         )
-
-#     def forward(self, x):
-#         return self.temporal_pathway(x)
-
-
-# class SpatialPathway(nn.Module):
-#     def __init__(self, input_shape: int):
-#         super(SpatialPathway, self).__init__()
-#         # Define the architecture for the spatial pathway
-#         self.spatial_pathway = nn.Sequential(
-#             nn.Linear(input_shape, 512),
-#             nn.ReLU(),
-#             nn.Linear(512, 256),
-#             nn.ReLU(),
-#             nn.Linear(256, FINAL_INPUT_EMBEDDING_DIM),
-#         )
-
-#     def forward(self, x):
-#         return self.spatial_pathway(x)
-
-
 """
 THIS IS THE MODEL FOR THE MODALITY PROJECTION. IN CASE OF MODALITY IS IN DIFFERENT DIMENSION,
 WE NEED TO PROJECT IT TO THE SAME DIMENSION. FOR THAT WE USE THIS MODEL.
 """
-
-
 class ModalityProjectionModel(nn.Module):
     def __init__(
-        self,
-        input_modality_shape: int,
-        output_modality_shape: int = FINAL_INPUT_EMBEDDING_DIM,
+            self,
+            input_modality_shape: int,
+            output_modality_shape: int = FINAL_INPUT_EMBEDDING_DIM,
     ):
         super(ModalityProjectionModel, self).__init__()
 
@@ -73,14 +37,12 @@ class ModalityProjectionModel(nn.Module):
 """
 THIS IS THE MODEL FOR THE MULTIMODAL CLASSIFICATION MODEL
 """
-
-
 class MultiModalModel(nn.Module):
     def __init__(
-        self,
-        num_classes: int,
-        num_modalities: int,
-        input_feature_shape: int = FINAL_INPUT_EMBEDDING_DIM,
+            self,
+            num_classes: int,
+            num_modalities: int,
+            input_feature_shape: int = FINAL_INPUT_EMBEDDING_DIM,
     ):
         super(MultiModalModel, self).__init__()
 
@@ -101,8 +63,6 @@ class MultiModalModel(nn.Module):
 THIS IS THE MODEL FOR THE AUTOENCODER FOR INTERMEDIATE FUSION. 
 WHICH WILL BE USED TO LEARN THE REPRESENTATION FOR EACH MODALITY SEPARETLY. 
 """
-
-
 class Autoencoder(nn.Module):
     def __init__(self):
         super(Autoencoder, self).__init__()
@@ -166,7 +126,6 @@ class MultiModalAttentionFusion(nn.Module):
 
 # test code to try multi modal model
 if __name__ == "__main__":
-
     # modality 1: dimension 750
     dim_1 = 750
     modality_1 = torch.randn(5, dim_1)

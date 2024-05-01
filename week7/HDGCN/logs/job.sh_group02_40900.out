@@ -1,0 +1,1013 @@
+log_dir:  ./work_dir/hmbdb51/bone_CoM_0/runs already exist
+Dir removed:  ./work_dir/hmbdb51/bone_CoM_0/runs
+<class 'model.HDGCN.Model'>
+[ Wed May  1 18:22:07 2024 ] using warm up, epoch: 5
+[ Wed May  1 18:22:11 2024 ] Parameters:
+{'work_dir': './work_dir/hmbdb51/bone_CoM_0/', 'model_saved_name': './work_dir/hmbdb51/bone_CoM_0/runs', 'config': './config/hmdb51/bone_com_1.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 1, 'save_epoch': 30, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder_hmdb51.Feeder', 'num_worker': 0, 'train_feeder_args': {'data_path': './data/hmdb51_2d_processed.pkl', 'split': 'train', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': 64, 'normalization': False, 'random_rot': True, 'p_interval': [0.5, 1], 'bone': True}, 'test_feeder_args': {'data_path': './data/hmdb51_2d_processed.pkl', 'split': 'test', 'window_size': 64, 'p_interval': [0.95], 'bone': True, 'debug': False}, 'model': 'model.HDGCN.Model', 'model_args': {'num_class': 51, 'num_point': 17, 'num_person': 1, 'graph': 'graph.ntu_rgb_d_hierarchy.Graph', 'graph_args': {'labeling_mode': 'spatial', 'CoM': 0}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [20, 40, 60], 'device': [0], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 64, 'test_batch_size': 64, 'start_epoch': 0, 'num_epoch': 90, 'weight_decay': 0.0004, 'lr_ratio': 0.001, 'lr_decay_rate': 0.1, 'warm_up_epoch': 5, 'loss_type': 'CE'}
+
+[ Wed May  1 18:22:11 2024 ] # Parameters: 1446973
+[ Wed May  1 18:22:11 2024 ] Training epoch: 1
+(2, 1, 17, 1)
+[ Wed May  1 18:23:35 2024 ] 	Mean training loss: 3.8292.  Mean training acc: 7.38%.
+[ Wed May  1 18:23:35 2024 ] 	Learning Rate: 0.0200
+[ Wed May  1 18:23:35 2024 ] 	Time consumption: [Data]09%, [Network]91%
+[ Wed May  1 18:23:38 2024 ] Eval epoch: 1
+(2, 1, 17, 1)
+Accuracy:  0.12085153853304825  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:24:00 2024 ] 	Mean test loss of 169 batches: 3.420565885904978.
+[ Wed May  1 18:24:00 2024 ] 	Top1: 12.09%
+[ Wed May  1 18:24:00 2024 ] 	Top5: 35.81%
+[ Wed May  1 18:24:00 2024 ] Training epoch: 2
+(2, 1, 17, 1)
+[ Wed May  1 18:25:04 2024 ] 	Mean training loss: 3.4617.  Mean training acc: 11.80%.
+[ Wed May  1 18:25:04 2024 ] 	Learning Rate: 0.0400
+[ Wed May  1 18:25:04 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:25:04 2024 ] Eval epoch: 2
+(2, 1, 17, 1)
+Accuracy:  0.12912522078646463  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:25:23 2024 ] 	Mean test loss of 169 batches: 3.3896355092878174.
+[ Wed May  1 18:25:24 2024 ] 	Top1: 12.91%
+[ Wed May  1 18:25:24 2024 ] 	Top5: 40.39%
+[ Wed May  1 18:25:24 2024 ] Training epoch: 3
+(2, 1, 17, 1)
+[ Wed May  1 18:26:28 2024 ] 	Mean training loss: 3.2945.  Mean training acc: 14.27%.
+[ Wed May  1 18:26:28 2024 ] 	Learning Rate: 0.0600
+[ Wed May  1 18:26:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:26:28 2024 ] Eval epoch: 3
+(2, 1, 17, 1)
+Accuracy:  0.14846146695175236  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:26:48 2024 ] 	Mean test loss of 169 batches: 3.2182950522067277.
+[ Wed May  1 18:26:48 2024 ] 	Top1: 14.85%
+[ Wed May  1 18:26:48 2024 ] 	Top5: 43.89%
+[ Wed May  1 18:26:48 2024 ] Training epoch: 4
+(2, 1, 17, 1)
+[ Wed May  1 18:27:51 2024 ] 	Mean training loss: 3.1954.  Mean training acc: 15.71%.
+[ Wed May  1 18:27:51 2024 ] 	Learning Rate: 0.0800
+[ Wed May  1 18:27:51 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:27:51 2024 ] Eval epoch: 4
+(2, 1, 17, 1)
+Accuracy:  0.18229989774100586  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:28:11 2024 ] 	Mean test loss of 169 batches: 3.0707181050227237.
+[ Wed May  1 18:28:11 2024 ] 	Top1: 18.23%
+[ Wed May  1 18:28:11 2024 ] 	Top5: 48.26%
+[ Wed May  1 18:28:11 2024 ] Training epoch: 5
+(2, 1, 17, 1)
+[ Wed May  1 18:29:14 2024 ] 	Mean training loss: 3.1227.  Mean training acc: 17.13%.
+[ Wed May  1 18:29:14 2024 ] 	Learning Rate: 0.1000
+[ Wed May  1 18:29:14 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:29:14 2024 ] Eval epoch: 5
+(2, 1, 17, 1)
+Accuracy:  0.19801059775030214  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:29:34 2024 ] 	Mean test loss of 169 batches: 3.006654093251426.
+[ Wed May  1 18:29:34 2024 ] 	Top1: 19.80%
+[ Wed May  1 18:29:34 2024 ] 	Top5: 50.22%
+[ Wed May  1 18:29:34 2024 ] Training epoch: 6
+(2, 1, 17, 1)
+[ Wed May  1 18:30:37 2024 ] 	Mean training loss: 3.0464.  Mean training acc: 19.06%.
+[ Wed May  1 18:30:37 2024 ] 	Learning Rate: 0.1000
+[ Wed May  1 18:30:37 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:30:37 2024 ] Eval epoch: 6
+(2, 1, 17, 1)
+Accuracy:  0.21678906758389885  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:30:56 2024 ] 	Mean test loss of 169 batches: 2.940636252510477.
+[ Wed May  1 18:30:56 2024 ] 	Top1: 21.68%
+[ Wed May  1 18:30:56 2024 ] 	Top5: 52.26%
+[ Wed May  1 18:30:56 2024 ] Training epoch: 7
+(2, 1, 17, 1)
+[ Wed May  1 18:31:59 2024 ] 	Mean training loss: 2.9852.  Mean training acc: 20.34%.
+[ Wed May  1 18:31:59 2024 ] 	Learning Rate: 0.0999
+[ Wed May  1 18:31:59 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:31:59 2024 ] Eval epoch: 7
+(2, 1, 17, 1)
+Accuracy:  0.20944501254996747  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:32:19 2024 ] 	Mean test loss of 169 batches: 2.9485081638810198.
+[ Wed May  1 18:32:19 2024 ] 	Top1: 20.94%
+[ Wed May  1 18:32:19 2024 ] 	Top5: 52.16%
+[ Wed May  1 18:32:19 2024 ] Training epoch: 8
+(2, 1, 17, 1)
+[ Wed May  1 18:33:21 2024 ] 	Mean training loss: 2.9567.  Mean training acc: 21.11%.
+[ Wed May  1 18:33:21 2024 ] 	Learning Rate: 0.0997
+[ Wed May  1 18:33:21 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:33:22 2024 ] Eval epoch: 8
+(2, 1, 17, 1)
+Accuracy:  0.22924607232499766  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:33:41 2024 ] 	Mean test loss of 169 batches: 2.8768581709212806.
+[ Wed May  1 18:33:41 2024 ] 	Top1: 22.92%
+[ Wed May  1 18:33:41 2024 ] 	Top5: 54.27%
+[ Wed May  1 18:33:41 2024 ] Training epoch: 9
+(2, 1, 17, 1)
+[ Wed May  1 18:34:44 2024 ] 	Mean training loss: 2.9363.  Mean training acc: 21.41%.
+[ Wed May  1 18:34:44 2024 ] 	Learning Rate: 0.0995
+[ Wed May  1 18:34:44 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:34:44 2024 ] Eval epoch: 9
+(2, 1, 17, 1)
+Accuracy:  0.23696197824672308  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:35:03 2024 ] 	Mean test loss of 169 batches: 2.8221959813812076.
+[ Wed May  1 18:35:03 2024 ] 	Top1: 23.70%
+[ Wed May  1 18:35:03 2024 ] 	Top5: 56.23%
+[ Wed May  1 18:35:03 2024 ] Training epoch: 10
+(2, 1, 17, 1)
+[ Wed May  1 18:36:06 2024 ] 	Mean training loss: 2.8960.  Mean training acc: 21.92%.
+[ Wed May  1 18:36:06 2024 ] 	Learning Rate: 0.0992
+[ Wed May  1 18:36:06 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:36:06 2024 ] Eval epoch: 10
+(2, 1, 17, 1)
+Accuracy:  0.24681602677326392  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:36:25 2024 ] 	Mean test loss of 169 batches: 2.7929804437964627.
+[ Wed May  1 18:36:25 2024 ] 	Top1: 24.68%
+[ Wed May  1 18:36:25 2024 ] 	Top5: 56.57%
+[ Wed May  1 18:36:25 2024 ] Training epoch: 11
+(2, 1, 17, 1)
+[ Wed May  1 18:37:28 2024 ] 	Mean training loss: 2.8866.  Mean training acc: 22.54%.
+[ Wed May  1 18:37:28 2024 ] 	Learning Rate: 0.0988
+[ Wed May  1 18:37:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:37:28 2024 ] Eval epoch: 11
+(2, 1, 17, 1)
+Accuracy:  0.2271079297201822  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:37:48 2024 ] 	Mean test loss of 169 batches: 2.840306440048669.
+[ Wed May  1 18:37:48 2024 ] 	Top1: 22.71%
+[ Wed May  1 18:37:48 2024 ] 	Top5: 56.02%
+[ Wed May  1 18:37:48 2024 ] Training epoch: 12
+(2, 1, 17, 1)
+[ Wed May  1 18:38:51 2024 ] 	Mean training loss: 2.8434.  Mean training acc: 23.95%.
+[ Wed May  1 18:38:51 2024 ] 	Learning Rate: 0.0983
+[ Wed May  1 18:38:51 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:38:51 2024 ] Eval epoch: 12
+(2, 1, 17, 1)
+Accuracy:  0.2495119457097704  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:39:11 2024 ] 	Mean test loss of 169 batches: 2.7966314138040036.
+[ Wed May  1 18:39:11 2024 ] 	Top1: 24.95%
+[ Wed May  1 18:39:11 2024 ] 	Top5: 55.42%
+[ Wed May  1 18:39:11 2024 ] Training epoch: 13
+(2, 1, 17, 1)
+[ Wed May  1 18:40:14 2024 ] 	Mean training loss: 2.8140.  Mean training acc: 24.71%.
+[ Wed May  1 18:40:14 2024 ] 	Learning Rate: 0.0978
+[ Wed May  1 18:40:14 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:40:14 2024 ] Eval epoch: 13
+(2, 1, 17, 1)
+Accuracy:  0.2737752161383285  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:40:33 2024 ] 	Mean test loss of 169 batches: 2.7223888755550045.
+[ Wed May  1 18:40:33 2024 ] 	Top1: 27.38%
+[ Wed May  1 18:40:33 2024 ] 	Top5: 59.57%
+[ Wed May  1 18:40:33 2024 ] Training epoch: 14
+(2, 1, 17, 1)
+[ Wed May  1 18:41:36 2024 ] 	Mean training loss: 2.8012.  Mean training acc: 24.44%.
+[ Wed May  1 18:41:36 2024 ] 	Learning Rate: 0.0973
+[ Wed May  1 18:41:36 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:41:36 2024 ] Eval epoch: 14
+(2, 1, 17, 1)
+Accuracy:  0.277214836850423  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:41:55 2024 ] 	Mean test loss of 169 batches: 2.6900739599261763.
+[ Wed May  1 18:41:55 2024 ] 	Top1: 27.72%
+[ Wed May  1 18:41:55 2024 ] 	Top5: 59.68%
+[ Wed May  1 18:41:55 2024 ] Training epoch: 15
+(2, 1, 17, 1)
+[ Wed May  1 18:42:58 2024 ] 	Mean training loss: 2.7757.  Mean training acc: 25.22%.
+[ Wed May  1 18:42:58 2024 ] 	Learning Rate: 0.0966
+[ Wed May  1 18:42:58 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:42:58 2024 ] Eval epoch: 15
+(2, 1, 17, 1)
+Accuracy:  0.2691270800409036  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:43:17 2024 ] 	Mean test loss of 169 batches: 2.7102104333730845.
+[ Wed May  1 18:43:18 2024 ] 	Top1: 26.91%
+[ Wed May  1 18:43:18 2024 ] 	Top5: 59.38%
+[ Wed May  1 18:43:18 2024 ] Training epoch: 16
+(2, 1, 17, 1)
+[ Wed May  1 18:44:20 2024 ] 	Mean training loss: 2.7462.  Mean training acc: 26.04%.
+[ Wed May  1 18:44:20 2024 ] 	Learning Rate: 0.0959
+[ Wed May  1 18:44:20 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:44:20 2024 ] Eval epoch: 16
+(2, 1, 17, 1)
+Accuracy:  0.2826066747234359  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:44:40 2024 ] 	Mean test loss of 169 batches: 2.661126159351958.
+[ Wed May  1 18:44:40 2024 ] 	Top1: 28.26%
+[ Wed May  1 18:44:40 2024 ] 	Top5: 60.10%
+[ Wed May  1 18:44:40 2024 ] Training epoch: 17
+(2, 1, 17, 1)
+[ Wed May  1 18:45:43 2024 ] 	Mean training loss: 2.7398.  Mean training acc: 25.74%.
+[ Wed May  1 18:45:43 2024 ] 	Learning Rate: 0.0952
+[ Wed May  1 18:45:43 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:45:43 2024 ] Eval epoch: 17
+(2, 1, 17, 1)
+Accuracy:  0.28130519661615694  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:46:02 2024 ] 	Mean test loss of 169 batches: 2.6557581974909854.
+[ Wed May  1 18:46:02 2024 ] 	Top1: 28.13%
+[ Wed May  1 18:46:02 2024 ] 	Top5: 59.83%
+[ Wed May  1 18:46:02 2024 ] Training epoch: 18
+(2, 1, 17, 1)
+[ Wed May  1 18:47:05 2024 ] 	Mean training loss: 2.7405.  Mean training acc: 26.10%.
+[ Wed May  1 18:47:05 2024 ] 	Learning Rate: 0.0943
+[ Wed May  1 18:47:05 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:47:05 2024 ] Eval epoch: 18
+(2, 1, 17, 1)
+Accuracy:  0.2888351770939853  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:47:24 2024 ] 	Mean test loss of 169 batches: 2.629188897341666.
+[ Wed May  1 18:47:24 2024 ] 	Top1: 28.88%
+[ Wed May  1 18:47:24 2024 ] 	Top5: 60.62%
+[ Wed May  1 18:47:24 2024 ] Training epoch: 19
+(2, 1, 17, 1)
+[ Wed May  1 18:48:28 2024 ] 	Mean training loss: 2.7343.  Mean training acc: 25.74%.
+[ Wed May  1 18:48:28 2024 ] 	Learning Rate: 0.0935
+[ Wed May  1 18:48:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:48:28 2024 ] Eval epoch: 19
+(2, 1, 17, 1)
+Accuracy:  0.27981779306498095  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:48:47 2024 ] 	Mean test loss of 169 batches: 2.654398924500279.
+[ Wed May  1 18:48:47 2024 ] 	Top1: 27.98%
+[ Wed May  1 18:48:47 2024 ] 	Top5: 61.19%
+[ Wed May  1 18:48:47 2024 ] Training epoch: 20
+(2, 1, 17, 1)
+[ Wed May  1 18:49:53 2024 ] 	Mean training loss: 2.7173.  Mean training acc: 26.69%.
+[ Wed May  1 18:49:53 2024 ] 	Learning Rate: 0.0925
+[ Wed May  1 18:49:53 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:49:53 2024 ] Eval epoch: 20
+(2, 1, 17, 1)
+Accuracy:  0.2978525611229897  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:50:12 2024 ] 	Mean test loss of 169 batches: 2.588108785053682.
+[ Wed May  1 18:50:12 2024 ] 	Top1: 29.79%
+[ Wed May  1 18:50:12 2024 ] 	Top5: 61.90%
+[ Wed May  1 18:50:12 2024 ] Training epoch: 21
+(2, 1, 17, 1)
+[ Wed May  1 18:51:15 2024 ] 	Mean training loss: 2.6963.  Mean training acc: 26.82%.
+[ Wed May  1 18:51:15 2024 ] 	Learning Rate: 0.0915
+[ Wed May  1 18:51:15 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:51:15 2024 ] Eval epoch: 21
+(2, 1, 17, 1)
+Accuracy:  0.2991540392302687  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:51:35 2024 ] 	Mean test loss of 169 batches: 2.607909888910824.
+[ Wed May  1 18:51:35 2024 ] 	Top1: 29.92%
+[ Wed May  1 18:51:35 2024 ] 	Top5: 61.38%
+[ Wed May  1 18:51:35 2024 ] Training epoch: 22
+(2, 1, 17, 1)
+[ Wed May  1 18:52:37 2024 ] 	Mean training loss: 2.6833.  Mean training acc: 27.46%.
+[ Wed May  1 18:52:37 2024 ] 	Learning Rate: 0.0905
+[ Wed May  1 18:52:37 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:52:37 2024 ] Eval epoch: 22
+(2, 1, 17, 1)
+Accuracy:  0.277214836850423  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:52:57 2024 ] 	Mean test loss of 169 batches: 2.653563122777544.
+[ Wed May  1 18:52:57 2024 ] 	Top1: 27.72%
+[ Wed May  1 18:52:57 2024 ] 	Top5: 61.15%
+[ Wed May  1 18:52:57 2024 ] Training epoch: 23
+(2, 1, 17, 1)
+[ Wed May  1 18:53:59 2024 ] 	Mean training loss: 2.6766.  Mean training acc: 27.34%.
+[ Wed May  1 18:53:59 2024 ] 	Learning Rate: 0.0894
+[ Wed May  1 18:53:59 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:54:00 2024 ] Eval epoch: 23
+(2, 1, 17, 1)
+Accuracy:  0.29562145579622573  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:54:19 2024 ] 	Mean test loss of 169 batches: 2.5889683672662316.
+[ Wed May  1 18:54:19 2024 ] 	Top1: 29.56%
+[ Wed May  1 18:54:19 2024 ] 	Top5: 62.49%
+[ Wed May  1 18:54:19 2024 ] Training epoch: 24
+(2, 1, 17, 1)
+[ Wed May  1 18:55:22 2024 ] 	Mean training loss: 2.6617.  Mean training acc: 28.39%.
+[ Wed May  1 18:55:22 2024 ] 	Learning Rate: 0.0882
+[ Wed May  1 18:55:22 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:55:22 2024 ] Eval epoch: 24
+(2, 1, 17, 1)
+Accuracy:  0.3055684670447151  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:55:41 2024 ] 	Mean test loss of 169 batches: 2.5568263368493707.
+[ Wed May  1 18:55:41 2024 ] 	Top1: 30.56%
+[ Wed May  1 18:55:41 2024 ] 	Top5: 62.90%
+[ Wed May  1 18:55:41 2024 ] Training epoch: 25
+(2, 1, 17, 1)
+[ Wed May  1 18:56:44 2024 ] 	Mean training loss: 2.6489.  Mean training acc: 29.01%.
+[ Wed May  1 18:56:44 2024 ] 	Learning Rate: 0.0870
+[ Wed May  1 18:56:44 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:56:44 2024 ] Eval epoch: 25
+(2, 1, 17, 1)
+Accuracy:  0.3026866226643116  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:57:03 2024 ] 	Mean test loss of 169 batches: 2.561431406517706.
+[ Wed May  1 18:57:04 2024 ] 	Top1: 30.27%
+[ Wed May  1 18:57:04 2024 ] 	Top5: 63.09%
+[ Wed May  1 18:57:04 2024 ] Training epoch: 26
+(2, 1, 17, 1)
+[ Wed May  1 18:58:07 2024 ] 	Mean training loss: 2.6198.  Mean training acc: 28.41%.
+[ Wed May  1 18:58:07 2024 ] 	Learning Rate: 0.0857
+[ Wed May  1 18:58:07 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:58:08 2024 ] Eval epoch: 26
+(2, 1, 17, 1)
+Accuracy:  0.2899507297573673  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:58:27 2024 ] 	Mean test loss of 169 batches: 2.5991273300182183.
+[ Wed May  1 18:58:27 2024 ] 	Top1: 29.00%
+[ Wed May  1 18:58:27 2024 ] 	Top5: 61.60%
+[ Wed May  1 18:58:27 2024 ] Training epoch: 27
+(2, 1, 17, 1)
+[ Wed May  1 18:59:31 2024 ] 	Mean training loss: 2.6330.  Mean training acc: 28.80%.
+[ Wed May  1 18:59:31 2024 ] 	Learning Rate: 0.0844
+[ Wed May  1 18:59:31 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 18:59:31 2024 ] Eval epoch: 27
+(2, 1, 17, 1)
+Accuracy:  0.30752068420563355  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 18:59:51 2024 ] 	Mean test loss of 169 batches: 2.5396114707698483.
+[ Wed May  1 18:59:51 2024 ] 	Top1: 30.75%
+[ Wed May  1 18:59:51 2024 ] 	Top5: 63.46%
+[ Wed May  1 18:59:51 2024 ] Training epoch: 28
+(2, 1, 17, 1)
+[ Wed May  1 19:00:55 2024 ] 	Mean training loss: 2.6316.  Mean training acc: 29.40%.
+[ Wed May  1 19:00:55 2024 ] 	Learning Rate: 0.0830
+[ Wed May  1 19:00:55 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:00:55 2024 ] Eval epoch: 28
+(2, 1, 17, 1)
+Accuracy:  0.3168169564004834  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:01:15 2024 ] 	Mean test loss of 169 batches: 2.5308834659982713.
+[ Wed May  1 19:01:15 2024 ] 	Top1: 31.68%
+[ Wed May  1 19:01:15 2024 ] 	Top5: 62.97%
+[ Wed May  1 19:01:15 2024 ] Training epoch: 29
+(2, 1, 17, 1)
+[ Wed May  1 19:02:19 2024 ] 	Mean training loss: 2.6067.  Mean training acc: 28.71%.
+[ Wed May  1 19:02:19 2024 ] 	Learning Rate: 0.0816
+[ Wed May  1 19:02:19 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:02:19 2024 ] Eval epoch: 29
+(2, 1, 17, 1)
+Accuracy:  0.30538254160081807  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:02:38 2024 ] 	Mean test loss of 169 batches: 2.5332939145127695.
+[ Wed May  1 19:02:38 2024 ] 	Top1: 30.54%
+[ Wed May  1 19:02:38 2024 ] 	Top5: 63.28%
+[ Wed May  1 19:02:38 2024 ] Training epoch: 30
+(2, 1, 17, 1)
+[ Wed May  1 19:03:41 2024 ] 	Mean training loss: 2.6091.  Mean training acc: 28.93%.
+[ Wed May  1 19:03:41 2024 ] 	Learning Rate: 0.0802
+[ Wed May  1 19:03:41 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:03:41 2024 ] Eval epoch: 30
+(2, 1, 17, 1)
+Accuracy:  0.3170028818443804  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:04:00 2024 ] 	Mean test loss of 169 batches: 2.5192445798738468.
+[ Wed May  1 19:04:00 2024 ] 	Top1: 31.70%
+[ Wed May  1 19:04:00 2024 ] 	Top5: 64.09%
+[ Wed May  1 19:04:00 2024 ] Training epoch: 31
+(2, 1, 17, 1)
+[ Wed May  1 19:05:03 2024 ] 	Mean training loss: 2.6075.  Mean training acc: 29.45%.
+[ Wed May  1 19:05:03 2024 ] 	Learning Rate: 0.0787
+[ Wed May  1 19:05:03 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:05:04 2024 ] Eval epoch: 31
+(2, 1, 17, 1)
+Accuracy:  0.32062842800037183  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:05:23 2024 ] 	Mean test loss of 169 batches: 2.487893874828632.
+[ Wed May  1 19:05:23 2024 ] 	Top1: 32.06%
+[ Wed May  1 19:05:23 2024 ] 	Top5: 64.94%
+[ Wed May  1 19:05:23 2024 ] Training epoch: 32
+(2, 1, 17, 1)
+[ Wed May  1 19:06:26 2024 ] 	Mean training loss: 2.5736.  Mean training acc: 29.56%.
+[ Wed May  1 19:06:26 2024 ] 	Learning Rate: 0.0771
+[ Wed May  1 19:06:26 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:06:26 2024 ] Eval epoch: 32
+(2, 1, 17, 1)
+Accuracy:  0.3153295528493074  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:06:45 2024 ] 	Mean test loss of 169 batches: 2.505564047740056.
+[ Wed May  1 19:06:45 2024 ] 	Top1: 31.53%
+[ Wed May  1 19:06:45 2024 ] 	Top5: 64.27%
+[ Wed May  1 19:06:45 2024 ] Training epoch: 33
+(2, 1, 17, 1)
+[ Wed May  1 19:07:48 2024 ] 	Mean training loss: 2.5731.  Mean training acc: 30.34%.
+[ Wed May  1 19:07:48 2024 ] 	Learning Rate: 0.0756
+[ Wed May  1 19:07:48 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:07:48 2024 ] Eval epoch: 33
+(2, 1, 17, 1)
+Accuracy:  0.32202286882959935  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:08:07 2024 ] 	Mean test loss of 169 batches: 2.508557322462635.
+[ Wed May  1 19:08:07 2024 ] 	Top1: 32.20%
+[ Wed May  1 19:08:07 2024 ] 	Top5: 64.50%
+[ Wed May  1 19:08:07 2024 ] Training epoch: 34
+(2, 1, 17, 1)
+[ Wed May  1 19:09:10 2024 ] 	Mean training loss: 2.5532.  Mean training acc: 30.34%.
+[ Wed May  1 19:09:10 2024 ] 	Learning Rate: 0.0740
+[ Wed May  1 19:09:10 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:09:11 2024 ] Eval epoch: 34
+(2, 1, 17, 1)
+Accuracy:  0.3227665706051873  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:09:30 2024 ] 	Mean test loss of 169 batches: 2.498631715774536.
+[ Wed May  1 19:09:30 2024 ] 	Top1: 32.28%
+[ Wed May  1 19:09:30 2024 ] 	Top5: 64.67%
+[ Wed May  1 19:09:30 2024 ] Training epoch: 35
+(2, 1, 17, 1)
+[ Wed May  1 19:10:33 2024 ] 	Mean training loss: 2.5493.  Mean training acc: 30.52%.
+[ Wed May  1 19:10:33 2024 ] 	Learning Rate: 0.0723
+[ Wed May  1 19:10:33 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:10:33 2024 ] Eval epoch: 35
+(2, 1, 17, 1)
+Accuracy:  0.3262061913172818  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:10:52 2024 ] 	Mean test loss of 169 batches: 2.474988243988985.
+[ Wed May  1 19:10:52 2024 ] 	Top1: 32.62%
+[ Wed May  1 19:10:52 2024 ] 	Top5: 65.14%
+[ Wed May  1 19:10:52 2024 ] Training epoch: 36
+(2, 1, 17, 1)
+[ Wed May  1 19:11:55 2024 ] 	Mean training loss: 2.5372.  Mean training acc: 31.25%.
+[ Wed May  1 19:11:55 2024 ] 	Learning Rate: 0.0707
+[ Wed May  1 19:11:55 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:11:55 2024 ] Eval epoch: 36
+(2, 1, 17, 1)
+Accuracy:  0.33503764990238916  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:12:14 2024 ] 	Mean test loss of 169 batches: 2.438258516012564.
+[ Wed May  1 19:12:14 2024 ] 	Top1: 33.50%
+[ Wed May  1 19:12:14 2024 ] 	Top5: 66.18%
+[ Wed May  1 19:12:15 2024 ] Training epoch: 37
+(2, 1, 17, 1)
+[ Wed May  1 19:13:17 2024 ] 	Mean training loss: 2.5204.  Mean training acc: 31.82%.
+[ Wed May  1 19:13:17 2024 ] 	Learning Rate: 0.0690
+[ Wed May  1 19:13:17 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:13:17 2024 ] Eval epoch: 37
+(2, 1, 17, 1)
+Accuracy:  0.3225806451612903  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:13:36 2024 ] 	Mean test loss of 169 batches: 2.4978040654278364.
+[ Wed May  1 19:13:37 2024 ] 	Top1: 32.26%
+[ Wed May  1 19:13:37 2024 ] 	Top5: 65.34%
+[ Wed May  1 19:13:37 2024 ] Training epoch: 38
+(2, 1, 17, 1)
+[ Wed May  1 19:14:39 2024 ] 	Mean training loss: 2.5278.  Mean training acc: 30.94%.
+[ Wed May  1 19:14:39 2024 ] 	Learning Rate: 0.0672
+[ Wed May  1 19:14:39 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:14:39 2024 ] Eval epoch: 38
+(2, 1, 17, 1)
+Accuracy:  0.33996467416565956  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:14:58 2024 ] 	Mean test loss of 169 batches: 2.419169983920261.
+[ Wed May  1 19:14:58 2024 ] 	Top1: 34.00%
+[ Wed May  1 19:14:58 2024 ] 	Top5: 66.43%
+[ Wed May  1 19:14:58 2024 ] Training epoch: 39
+(2, 1, 17, 1)
+[ Wed May  1 19:16:01 2024 ] 	Mean training loss: 2.5009.  Mean training acc: 32.00%.
+[ Wed May  1 19:16:01 2024 ] 	Learning Rate: 0.0655
+[ Wed May  1 19:16:01 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:16:01 2024 ] Eval epoch: 39
+(2, 1, 17, 1)
+Accuracy:  0.34182392860462957  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:16:20 2024 ] 	Mean test loss of 169 batches: 2.4046251294175547.
+[ Wed May  1 19:16:20 2024 ] 	Top1: 34.18%
+[ Wed May  1 19:16:20 2024 ] 	Top5: 66.67%
+[ Wed May  1 19:16:20 2024 ] Training epoch: 40
+(2, 1, 17, 1)
+[ Wed May  1 19:17:23 2024 ] 	Mean training loss: 2.4968.  Mean training acc: 32.12%.
+[ Wed May  1 19:17:23 2024 ] 	Learning Rate: 0.0637
+[ Wed May  1 19:17:23 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:17:23 2024 ] Eval epoch: 40
+(2, 1, 17, 1)
+Accuracy:  0.34163800316073256  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:17:42 2024 ] 	Mean test loss of 169 batches: 2.404985867308442.
+[ Wed May  1 19:17:42 2024 ] 	Top1: 34.16%
+[ Wed May  1 19:17:42 2024 ] 	Top5: 66.29%
+[ Wed May  1 19:17:43 2024 ] Training epoch: 41
+(2, 1, 17, 1)
+[ Wed May  1 19:18:45 2024 ] 	Mean training loss: 2.4879.  Mean training acc: 32.65%.
+[ Wed May  1 19:18:45 2024 ] 	Learning Rate: 0.0619
+[ Wed May  1 19:18:45 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:18:45 2024 ] Eval epoch: 41
+(2, 1, 17, 1)
+Accuracy:  0.3527005670726039  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:19:04 2024 ] 	Mean test loss of 169 batches: 2.3890531507469492.
+[ Wed May  1 19:19:04 2024 ] 	Top1: 35.27%
+[ Wed May  1 19:19:04 2024 ] 	Top5: 67.15%
+[ Wed May  1 19:19:05 2024 ] Training epoch: 42
+(2, 1, 17, 1)
+[ Wed May  1 19:20:07 2024 ] 	Mean training loss: 2.4812.  Mean training acc: 32.27%.
+[ Wed May  1 19:20:07 2024 ] 	Learning Rate: 0.0601
+[ Wed May  1 19:20:07 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:20:07 2024 ] Eval epoch: 42
+(2, 1, 17, 1)
+Accuracy:  0.33373617179511017  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:20:26 2024 ] 	Mean test loss of 169 batches: 2.4563136531051093.
+[ Wed May  1 19:20:27 2024 ] 	Top1: 33.37%
+[ Wed May  1 19:20:27 2024 ] 	Top5: 65.43%
+[ Wed May  1 19:20:27 2024 ] Training epoch: 43
+(2, 1, 17, 1)
+[ Wed May  1 19:21:29 2024 ] 	Mean training loss: 2.4678.  Mean training acc: 32.60%.
+[ Wed May  1 19:21:29 2024 ] 	Learning Rate: 0.0583
+[ Wed May  1 19:21:29 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:21:29 2024 ] Eval epoch: 43
+(2, 1, 17, 1)
+Accuracy:  0.35409500790183135  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:21:48 2024 ] 	Mean test loss of 169 batches: 2.3594916325349073.
+[ Wed May  1 19:21:49 2024 ] 	Top1: 35.41%
+[ Wed May  1 19:21:49 2024 ] 	Top5: 67.10%
+[ Wed May  1 19:21:49 2024 ] Training epoch: 44
+(2, 1, 17, 1)
+[ Wed May  1 19:22:51 2024 ] 	Mean training loss: 2.4490.  Mean training acc: 33.17%.
+[ Wed May  1 19:22:51 2024 ] 	Learning Rate: 0.0565
+[ Wed May  1 19:22:51 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:22:52 2024 ] Eval epoch: 44
+(2, 1, 17, 1)
+Accuracy:  0.36190387654550527  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:23:11 2024 ] 	Mean test loss of 169 batches: 2.3278498318068372.
+[ Wed May  1 19:23:11 2024 ] 	Top1: 36.19%
+[ Wed May  1 19:23:11 2024 ] 	Top5: 68.87%
+[ Wed May  1 19:23:11 2024 ] Training epoch: 45
+(2, 1, 17, 1)
+[ Wed May  1 19:24:13 2024 ] 	Mean training loss: 2.4492.  Mean training acc: 33.33%.
+[ Wed May  1 19:24:13 2024 ] 	Learning Rate: 0.0547
+[ Wed May  1 19:24:13 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:24:14 2024 ] Eval epoch: 45
+(2, 1, 17, 1)
+Accuracy:  0.3661801617551362  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:24:33 2024 ] 	Mean test loss of 169 batches: 2.2942800260859832.
+[ Wed May  1 19:24:33 2024 ] 	Top1: 36.62%
+[ Wed May  1 19:24:33 2024 ] 	Top5: 69.27%
+[ Wed May  1 19:24:33 2024 ] Training epoch: 46
+(2, 1, 17, 1)
+[ Wed May  1 19:25:35 2024 ] 	Mean training loss: 2.4138.  Mean training acc: 33.95%.
+[ Wed May  1 19:25:35 2024 ] 	Learning Rate: 0.0528
+[ Wed May  1 19:25:35 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:25:35 2024 ] Eval epoch: 46
+(2, 1, 17, 1)
+Accuracy:  0.36729571441851816  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:25:54 2024 ] 	Mean test loss of 169 batches: 2.301280286890515.
+[ Wed May  1 19:25:54 2024 ] 	Top1: 36.73%
+[ Wed May  1 19:25:55 2024 ] 	Top5: 68.24%
+[ Wed May  1 19:25:55 2024 ] Training epoch: 47
+(2, 1, 17, 1)
+[ Wed May  1 19:26:57 2024 ] 	Mean training loss: 2.4259.  Mean training acc: 33.64%.
+[ Wed May  1 19:26:57 2024 ] 	Learning Rate: 0.0510
+[ Wed May  1 19:26:57 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:26:58 2024 ] Eval epoch: 47
+(2, 1, 17, 1)
+Accuracy:  0.36906200613553963  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:27:17 2024 ] 	Mean test loss of 169 batches: 2.2970962475037435.
+[ Wed May  1 19:27:17 2024 ] 	Top1: 36.91%
+[ Wed May  1 19:27:17 2024 ] 	Top5: 69.07%
+[ Wed May  1 19:27:17 2024 ] Training epoch: 48
+(2, 1, 17, 1)
+[ Wed May  1 19:28:19 2024 ] 	Mean training loss: 2.3967.  Mean training acc: 34.38%.
+[ Wed May  1 19:28:19 2024 ] 	Learning Rate: 0.0491
+[ Wed May  1 19:28:19 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:28:20 2024 ] Eval epoch: 48
+(2, 1, 17, 1)
+Accuracy:  0.38198382448638096  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:28:39 2024 ] 	Mean test loss of 169 batches: 2.267463206539493.
+[ Wed May  1 19:28:39 2024 ] 	Top1: 38.20%
+[ Wed May  1 19:28:39 2024 ] 	Top5: 69.58%
+[ Wed May  1 19:28:39 2024 ] Training epoch: 49
+(2, 1, 17, 1)
+[ Wed May  1 19:29:42 2024 ] 	Mean training loss: 2.3801.  Mean training acc: 35.43%.
+[ Wed May  1 19:29:42 2024 ] 	Learning Rate: 0.0473
+[ Wed May  1 19:29:42 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:29:42 2024 ] Eval epoch: 49
+(2, 1, 17, 1)
+Accuracy:  0.37175792507204614  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:30:01 2024 ] 	Mean test loss of 169 batches: 2.264535954718054.
+[ Wed May  1 19:30:01 2024 ] 	Top1: 37.18%
+[ Wed May  1 19:30:01 2024 ] 	Top5: 69.52%
+[ Wed May  1 19:30:01 2024 ] Training epoch: 50
+(2, 1, 17, 1)
+[ Wed May  1 19:31:04 2024 ] 	Mean training loss: 2.3777.  Mean training acc: 34.98%.
+[ Wed May  1 19:31:04 2024 ] 	Learning Rate: 0.0455
+[ Wed May  1 19:31:04 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:31:04 2024 ] Eval epoch: 50
+(2, 1, 17, 1)
+Accuracy:  0.3720368132378916  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:31:23 2024 ] 	Mean test loss of 169 batches: 2.2798415577623268.
+[ Wed May  1 19:31:23 2024 ] 	Top1: 37.20%
+[ Wed May  1 19:31:23 2024 ] 	Top5: 69.34%
+[ Wed May  1 19:31:23 2024 ] Training epoch: 51
+(2, 1, 17, 1)
+[ Wed May  1 19:32:26 2024 ] 	Mean training loss: 2.3698.  Mean training acc: 35.03%.
+[ Wed May  1 19:32:26 2024 ] 	Learning Rate: 0.0436
+[ Wed May  1 19:32:26 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:32:26 2024 ] Eval epoch: 51
+(2, 1, 17, 1)
+Accuracy:  0.380868271822999  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:32:45 2024 ] 	Mean test loss of 169 batches: 2.2543478054407786.
+[ Wed May  1 19:32:45 2024 ] 	Top1: 38.09%
+[ Wed May  1 19:32:45 2024 ] 	Top5: 70.02%
+[ Wed May  1 19:32:45 2024 ] Training epoch: 52
+(2, 1, 17, 1)
+[ Wed May  1 19:33:47 2024 ] 	Mean training loss: 2.3483.  Mean training acc: 35.33%.
+[ Wed May  1 19:33:47 2024 ] 	Learning Rate: 0.0418
+[ Wed May  1 19:33:47 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:33:48 2024 ] Eval epoch: 52
+(2, 1, 17, 1)
+Accuracy:  0.3741749558427071  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:34:07 2024 ] 	Mean test loss of 169 batches: 2.268147267533477.
+[ Wed May  1 19:34:07 2024 ] 	Top1: 37.42%
+[ Wed May  1 19:34:07 2024 ] 	Top5: 69.38%
+[ Wed May  1 19:34:07 2024 ] Training epoch: 53
+(2, 1, 17, 1)
+[ Wed May  1 19:35:10 2024 ] 	Mean training loss: 2.3397.  Mean training acc: 35.54%.
+[ Wed May  1 19:35:10 2024 ] 	Learning Rate: 0.0400
+[ Wed May  1 19:35:10 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:35:10 2024 ] Eval epoch: 53
+(2, 1, 17, 1)
+Accuracy:  0.3987171144371107  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:35:29 2024 ] 	Mean test loss of 169 batches: 2.190764734730918.
+[ Wed May  1 19:35:29 2024 ] 	Top1: 39.87%
+[ Wed May  1 19:35:29 2024 ] 	Top5: 71.09%
+[ Wed May  1 19:35:29 2024 ] Training epoch: 54
+(2, 1, 17, 1)
+[ Wed May  1 19:36:31 2024 ] 	Mean training loss: 2.3464.  Mean training acc: 36.12%.
+[ Wed May  1 19:36:31 2024 ] 	Learning Rate: 0.0382
+[ Wed May  1 19:36:31 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:36:31 2024 ] Eval epoch: 54
+(2, 1, 17, 1)
+Accuracy:  0.3980663753834712  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:36:50 2024 ] 	Mean test loss of 169 batches: 2.1771955200906334.
+[ Wed May  1 19:36:51 2024 ] 	Top1: 39.81%
+[ Wed May  1 19:36:51 2024 ] 	Top5: 71.39%
+[ Wed May  1 19:36:51 2024 ] Training epoch: 55
+(2, 1, 17, 1)
+[ Wed May  1 19:37:53 2024 ] 	Mean training loss: 2.3044.  Mean training acc: 36.66%.
+[ Wed May  1 19:37:53 2024 ] 	Learning Rate: 0.0364
+[ Wed May  1 19:37:53 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:37:53 2024 ] Eval epoch: 55
+(2, 1, 17, 1)
+Accuracy:  0.40271451148089615  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:38:12 2024 ] 	Mean test loss of 169 batches: 2.156298778466219.
+[ Wed May  1 19:38:12 2024 ] 	Top1: 40.27%
+[ Wed May  1 19:38:12 2024 ] 	Top5: 72.17%
+[ Wed May  1 19:38:12 2024 ] Training epoch: 56
+(2, 1, 17, 1)
+[ Wed May  1 19:39:15 2024 ] 	Mean training loss: 2.2888.  Mean training acc: 37.44%.
+[ Wed May  1 19:39:15 2024 ] 	Learning Rate: 0.0346
+[ Wed May  1 19:39:15 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:39:15 2024 ] Eval epoch: 56
+(2, 1, 17, 1)
+Accuracy:  0.3975085990517802  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:39:34 2024 ] 	Mean test loss of 169 batches: 2.17984463829966.
+[ Wed May  1 19:39:34 2024 ] 	Top1: 39.75%
+[ Wed May  1 19:39:34 2024 ] 	Top5: 71.61%
+[ Wed May  1 19:39:34 2024 ] Training epoch: 57
+(2, 1, 17, 1)
+[ Wed May  1 19:40:37 2024 ] 	Mean training loss: 2.2791.  Mean training acc: 36.92%.
+[ Wed May  1 19:40:37 2024 ] 	Learning Rate: 0.0329
+[ Wed May  1 19:40:37 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:40:37 2024 ] Eval epoch: 57
+(2, 1, 17, 1)
+Accuracy:  0.42084224226085337  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:40:57 2024 ] 	Mean test loss of 169 batches: 2.092962925956094.
+[ Wed May  1 19:40:57 2024 ] 	Top1: 42.08%
+[ Wed May  1 19:40:57 2024 ] 	Top5: 73.15%
+[ Wed May  1 19:40:57 2024 ] Training epoch: 58
+(2, 1, 17, 1)
+[ Wed May  1 19:42:00 2024 ] 	Mean training loss: 2.2707.  Mean training acc: 37.43%.
+[ Wed May  1 19:42:00 2024 ] 	Learning Rate: 0.0312
+[ Wed May  1 19:42:00 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:42:00 2024 ] Eval epoch: 58
+(2, 1, 17, 1)
+Accuracy:  0.40782746118806357  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:42:19 2024 ] 	Mean test loss of 169 batches: 2.147426286392663.
+[ Wed May  1 19:42:20 2024 ] 	Top1: 40.78%
+[ Wed May  1 19:42:20 2024 ] 	Top5: 72.56%
+[ Wed May  1 19:42:20 2024 ] Training epoch: 59
+(2, 1, 17, 1)
+[ Wed May  1 19:43:22 2024 ] 	Mean training loss: 2.2656.  Mean training acc: 38.03%.
+[ Wed May  1 19:43:22 2024 ] 	Learning Rate: 0.0295
+[ Wed May  1 19:43:22 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:43:23 2024 ] Eval epoch: 59
+(2, 1, 17, 1)
+Accuracy:  0.4265129682997118  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:43:42 2024 ] 	Mean test loss of 169 batches: 2.079049918778549.
+[ Wed May  1 19:43:42 2024 ] 	Top1: 42.65%
+[ Wed May  1 19:43:42 2024 ] 	Top5: 73.41%
+[ Wed May  1 19:43:42 2024 ] Training epoch: 60
+(2, 1, 17, 1)
+[ Wed May  1 19:44:44 2024 ] 	Mean training loss: 2.2293.  Mean training acc: 38.52%.
+[ Wed May  1 19:44:44 2024 ] 	Learning Rate: 0.0278
+[ Wed May  1 19:44:44 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:44:44 2024 ] Eval epoch: 60
+(2, 1, 17, 1)
+Accuracy:  0.4285581481825788  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:45:03 2024 ] 	Mean test loss of 169 batches: 2.059236086331881.
+[ Wed May  1 19:45:03 2024 ] 	Top1: 42.86%
+[ Wed May  1 19:45:03 2024 ] 	Top5: 74.18%
+[ Wed May  1 19:45:03 2024 ] Training epoch: 61
+(2, 1, 17, 1)
+[ Wed May  1 19:46:06 2024 ] 	Mean training loss: 2.2065.  Mean training acc: 39.30%.
+[ Wed May  1 19:46:06 2024 ] 	Learning Rate: 0.0262
+[ Wed May  1 19:46:06 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:46:06 2024 ] Eval epoch: 61
+(2, 1, 17, 1)
+Accuracy:  0.43915589848470765  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:46:25 2024 ] 	Mean test loss of 169 batches: 2.0155199505168304.
+[ Wed May  1 19:46:25 2024 ] 	Top1: 43.92%
+[ Wed May  1 19:46:25 2024 ] 	Top5: 74.95%
+[ Wed May  1 19:46:25 2024 ] Training epoch: 62
+(2, 1, 17, 1)
+[ Wed May  1 19:47:28 2024 ] 	Mean training loss: 2.1798.  Mean training acc: 40.16%.
+[ Wed May  1 19:47:28 2024 ] 	Learning Rate: 0.0246
+[ Wed May  1 19:47:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:47:28 2024 ] Eval epoch: 62
+(2, 1, 17, 1)
+Accuracy:  0.44175885469926557  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:47:47 2024 ] 	Mean test loss of 169 batches: 2.031571074350346.
+[ Wed May  1 19:47:47 2024 ] 	Top1: 44.18%
+[ Wed May  1 19:47:47 2024 ] 	Top5: 74.31%
+[ Wed May  1 19:47:47 2024 ] Training epoch: 63
+(2, 1, 17, 1)
+[ Wed May  1 19:48:50 2024 ] 	Mean training loss: 2.1905.  Mean training acc: 39.46%.
+[ Wed May  1 19:48:50 2024 ] 	Learning Rate: 0.0230
+[ Wed May  1 19:48:50 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:48:50 2024 ] Eval epoch: 63
+(2, 1, 17, 1)
+Accuracy:  0.4220507576461839  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:49:09 2024 ] 	Mean test loss of 169 batches: 2.080001488945188.
+[ Wed May  1 19:49:09 2024 ] 	Top1: 42.21%
+[ Wed May  1 19:49:09 2024 ] 	Top5: 73.34%
+[ Wed May  1 19:49:09 2024 ] Training epoch: 64
+(2, 1, 17, 1)
+[ Wed May  1 19:50:12 2024 ] 	Mean training loss: 2.1722.  Mean training acc: 40.29%.
+[ Wed May  1 19:50:12 2024 ] 	Learning Rate: 0.0215
+[ Wed May  1 19:50:12 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:50:12 2024 ] Eval epoch: 64
+(2, 1, 17, 1)
+Accuracy:  0.4510551268941155  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:50:31 2024 ] 	Mean test loss of 169 batches: 1.9963820777701202.
+[ Wed May  1 19:50:31 2024 ] 	Top1: 45.11%
+[ Wed May  1 19:50:31 2024 ] 	Top5: 75.31%
+[ Wed May  1 19:50:31 2024 ] Training epoch: 65
+(2, 1, 17, 1)
+[ Wed May  1 19:51:34 2024 ] 	Mean training loss: 2.1434.  Mean training acc: 40.51%.
+[ Wed May  1 19:51:34 2024 ] 	Learning Rate: 0.0200
+[ Wed May  1 19:51:34 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:51:34 2024 ] Eval epoch: 65
+(2, 1, 17, 1)
+Accuracy:  0.45328623222087944  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:51:53 2024 ] 	Mean test loss of 169 batches: 1.994518921220091.
+[ Wed May  1 19:51:53 2024 ] 	Top1: 45.33%
+[ Wed May  1 19:51:53 2024 ] 	Top5: 74.88%
+[ Wed May  1 19:51:53 2024 ] Training epoch: 66
+(2, 1, 17, 1)
+[ Wed May  1 19:52:56 2024 ] 	Mean training loss: 2.1115.  Mean training acc: 41.47%.
+[ Wed May  1 19:52:56 2024 ] 	Learning Rate: 0.0185
+[ Wed May  1 19:52:56 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:52:56 2024 ] Eval epoch: 66
+(2, 1, 17, 1)
+Accuracy:  0.4488240215673515  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:53:15 2024 ] 	Mean test loss of 169 batches: 1.9905826862041767.
+[ Wed May  1 19:53:15 2024 ] 	Top1: 44.88%
+[ Wed May  1 19:53:15 2024 ] 	Top5: 74.91%
+[ Wed May  1 19:53:15 2024 ] Training epoch: 67
+(2, 1, 17, 1)
+[ Wed May  1 19:54:18 2024 ] 	Mean training loss: 2.1102.  Mean training acc: 41.74%.
+[ Wed May  1 19:54:18 2024 ] 	Learning Rate: 0.0171
+[ Wed May  1 19:54:18 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:54:18 2024 ] Eval epoch: 67
+(2, 1, 17, 1)
+Accuracy:  0.4698335967277122  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:54:37 2024 ] 	Mean test loss of 169 batches: 1.8996295689125737.
+[ Wed May  1 19:54:37 2024 ] 	Top1: 46.98%
+[ Wed May  1 19:54:37 2024 ] 	Top5: 77.14%
+[ Wed May  1 19:54:37 2024 ] Training epoch: 68
+(2, 1, 17, 1)
+[ Wed May  1 19:55:40 2024 ] 	Mean training loss: 2.0839.  Mean training acc: 42.60%.
+[ Wed May  1 19:55:40 2024 ] 	Learning Rate: 0.0157
+[ Wed May  1 19:55:40 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:55:40 2024 ] Eval epoch: 68
+(2, 1, 17, 1)
+Accuracy:  0.46416287068885376  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:55:59 2024 ] 	Mean test loss of 169 batches: 1.951541128243215.
+[ Wed May  1 19:55:59 2024 ] 	Top1: 46.42%
+[ Wed May  1 19:55:59 2024 ] 	Top5: 76.00%
+[ Wed May  1 19:55:59 2024 ] Training epoch: 69
+(2, 1, 17, 1)
+[ Wed May  1 19:57:02 2024 ] 	Mean training loss: 2.0554.  Mean training acc: 43.47%.
+[ Wed May  1 19:57:02 2024 ] 	Learning Rate: 0.0144
+[ Wed May  1 19:57:02 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:57:02 2024 ] Eval epoch: 69
+(2, 1, 17, 1)
+Accuracy:  0.482476526912708  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:57:21 2024 ] 	Mean test loss of 169 batches: 1.8632461516814824.
+[ Wed May  1 19:57:21 2024 ] 	Top1: 48.25%
+[ Wed May  1 19:57:21 2024 ] 	Top5: 77.61%
+[ Wed May  1 19:57:21 2024 ] Training epoch: 70
+(2, 1, 17, 1)
+[ Wed May  1 19:58:24 2024 ] 	Mean training loss: 2.0309.  Mean training acc: 43.55%.
+[ Wed May  1 19:58:24 2024 ] 	Learning Rate: 0.0131
+[ Wed May  1 19:58:24 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:58:24 2024 ] Eval epoch: 70
+(2, 1, 17, 1)
+Accuracy:  0.48033838430789255  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 19:58:43 2024 ] 	Mean test loss of 169 batches: 1.8754699427700607.
+[ Wed May  1 19:58:43 2024 ] 	Top1: 48.03%
+[ Wed May  1 19:58:43 2024 ] 	Top5: 76.91%
+[ Wed May  1 19:58:43 2024 ] Training epoch: 71
+(2, 1, 17, 1)
+[ Wed May  1 19:59:46 2024 ] 	Mean training loss: 2.0273.  Mean training acc: 43.45%.
+[ Wed May  1 19:59:46 2024 ] 	Learning Rate: 0.0119
+[ Wed May  1 19:59:46 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 19:59:46 2024 ] Eval epoch: 71
+(2, 1, 17, 1)
+Accuracy:  0.49298131449288835  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:00:05 2024 ] 	Mean test loss of 169 batches: 1.82909950561072.
+[ Wed May  1 20:00:05 2024 ] 	Top1: 49.30%
+[ Wed May  1 20:00:05 2024 ] 	Top5: 78.27%
+[ Wed May  1 20:00:05 2024 ] Training epoch: 72
+(2, 1, 17, 1)
+[ Wed May  1 20:01:08 2024 ] 	Mean training loss: 2.0096.  Mean training acc: 44.23%.
+[ Wed May  1 20:01:08 2024 ] 	Learning Rate: 0.0108
+[ Wed May  1 20:01:08 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:01:08 2024 ] Eval epoch: 72
+(2, 1, 17, 1)
+Accuracy:  0.4956772334293948  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:01:27 2024 ] 	Mean test loss of 169 batches: 1.8181767971557978.
+[ Wed May  1 20:01:27 2024 ] 	Top1: 49.57%
+[ Wed May  1 20:01:27 2024 ] 	Top5: 78.27%
+[ Wed May  1 20:01:27 2024 ] Training epoch: 73
+(2, 1, 17, 1)
+[ Wed May  1 20:02:30 2024 ] 	Mean training loss: 1.9823.  Mean training acc: 45.48%.
+[ Wed May  1 20:02:30 2024 ] 	Learning Rate: 0.0096
+[ Wed May  1 20:02:30 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:02:30 2024 ] Eval epoch: 73
+(2, 1, 17, 1)
+Accuracy:  0.49595612159524033  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:02:49 2024 ] 	Mean test loss of 169 batches: 1.8115746594039646.
+[ Wed May  1 20:02:49 2024 ] 	Top1: 49.60%
+[ Wed May  1 20:02:49 2024 ] 	Top5: 78.10%
+[ Wed May  1 20:02:49 2024 ] Training epoch: 74
+(2, 1, 17, 1)
+[ Wed May  1 20:03:52 2024 ] 	Mean training loss: 1.9736.  Mean training acc: 45.77%.
+[ Wed May  1 20:03:52 2024 ] 	Learning Rate: 0.0086
+[ Wed May  1 20:03:52 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:03:52 2024 ] Eval epoch: 74
+(2, 1, 17, 1)
+Accuracy:  0.5070186855071116  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:04:12 2024 ] 	Mean test loss of 169 batches: 1.7791839788651325.
+[ Wed May  1 20:04:12 2024 ] 	Top1: 50.70%
+[ Wed May  1 20:04:12 2024 ] 	Top5: 78.77%
+[ Wed May  1 20:04:12 2024 ] Training epoch: 75
+(2, 1, 17, 1)
+[ Wed May  1 20:05:15 2024 ] 	Mean training loss: 1.9396.  Mean training acc: 46.24%.
+[ Wed May  1 20:05:15 2024 ] 	Learning Rate: 0.0076
+[ Wed May  1 20:05:15 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:05:15 2024 ] Eval epoch: 75
+(2, 1, 17, 1)
+Accuracy:  0.5099005298875151  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:05:34 2024 ] 	Mean test loss of 169 batches: 1.7788679091888067.
+[ Wed May  1 20:05:34 2024 ] 	Top1: 50.99%
+[ Wed May  1 20:05:34 2024 ] 	Top5: 78.31%
+[ Wed May  1 20:05:34 2024 ] Training epoch: 76
+(2, 1, 17, 1)
+[ Wed May  1 20:06:36 2024 ] 	Mean training loss: 1.9134.  Mean training acc: 46.50%.
+[ Wed May  1 20:06:36 2024 ] 	Learning Rate: 0.0066
+[ Wed May  1 20:06:36 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:06:37 2024 ] Eval epoch: 76
+(2, 1, 17, 1)
+Accuracy:  0.520312354745747  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:06:56 2024 ] 	Mean test loss of 169 batches: 1.7385256001229823.
+[ Wed May  1 20:06:56 2024 ] 	Top1: 52.03%
+[ Wed May  1 20:06:56 2024 ] 	Top5: 79.39%
+[ Wed May  1 20:06:56 2024 ] Training epoch: 77
+(2, 1, 17, 1)
+[ Wed May  1 20:08:00 2024 ] 	Mean training loss: 1.8951.  Mean training acc: 48.07%.
+[ Wed May  1 20:08:00 2024 ] 	Learning Rate: 0.0058
+[ Wed May  1 20:08:00 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:08:00 2024 ] Eval epoch: 77
+(2, 1, 17, 1)
+Accuracy:  0.5268197452821418  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:08:19 2024 ] 	Mean test loss of 169 batches: 1.7018549089601054.
+[ Wed May  1 20:08:19 2024 ] 	Top1: 52.68%
+[ Wed May  1 20:08:19 2024 ] 	Top5: 79.61%
+[ Wed May  1 20:08:19 2024 ] Training epoch: 78
+(2, 1, 17, 1)
+[ Wed May  1 20:09:22 2024 ] 	Mean training loss: 1.8711.  Mean training acc: 47.76%.
+[ Wed May  1 20:09:22 2024 ] 	Learning Rate: 0.0049
+[ Wed May  1 20:09:22 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:09:23 2024 ] Eval epoch: 78
+(2, 1, 17, 1)
+Accuracy:  0.5362089801989403  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:09:42 2024 ] 	Mean test loss of 169 batches: 1.6742680136268662.
+[ Wed May  1 20:09:42 2024 ] 	Top1: 53.62%
+[ Wed May  1 20:09:42 2024 ] 	Top5: 80.45%
+[ Wed May  1 20:09:42 2024 ] Training epoch: 79
+(2, 1, 17, 1)
+[ Wed May  1 20:10:44 2024 ] 	Mean training loss: 1.8749.  Mean training acc: 48.28%.
+[ Wed May  1 20:10:44 2024 ] 	Learning Rate: 0.0042
+[ Wed May  1 20:10:44 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:10:45 2024 ] Eval epoch: 79
+(2, 1, 17, 1)
+Accuracy:  0.5403923026866226  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:11:04 2024 ] 	Mean test loss of 169 batches: 1.6650326781018951.
+[ Wed May  1 20:11:04 2024 ] 	Top1: 54.04%
+[ Wed May  1 20:11:04 2024 ] 	Top5: 80.82%
+[ Wed May  1 20:11:04 2024 ] Training epoch: 80
+(2, 1, 17, 1)
+[ Wed May  1 20:12:06 2024 ] 	Mean training loss: 1.8285.  Mean training acc: 49.45%.
+[ Wed May  1 20:12:06 2024 ] 	Learning Rate: 0.0035
+[ Wed May  1 20:12:06 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:12:06 2024 ] Eval epoch: 80
+(2, 1, 17, 1)
+Accuracy:  0.5414148926280562  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:12:26 2024 ] 	Mean test loss of 169 batches: 1.6455388538230806.
+[ Wed May  1 20:12:26 2024 ] 	Top1: 54.14%
+[ Wed May  1 20:12:26 2024 ] 	Top5: 81.48%
+[ Wed May  1 20:12:26 2024 ] Training epoch: 81
+(2, 1, 17, 1)
+[ Wed May  1 20:13:28 2024 ] 	Mean training loss: 1.7993.  Mean training acc: 50.59%.
+[ Wed May  1 20:13:28 2024 ] 	Learning Rate: 0.0028
+[ Wed May  1 20:13:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:13:28 2024 ] Eval epoch: 81
+(2, 1, 17, 1)
+Accuracy:  0.5523844938179789  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:13:48 2024 ] 	Mean test loss of 169 batches: 1.6264228136581782.
+[ Wed May  1 20:13:48 2024 ] 	Top1: 55.24%
+[ Wed May  1 20:13:48 2024 ] 	Top5: 81.17%
+[ Wed May  1 20:13:48 2024 ] Training epoch: 82
+(2, 1, 17, 1)
+[ Wed May  1 20:14:50 2024 ] 	Mean training loss: 1.8258.  Mean training acc: 49.86%.
+[ Wed May  1 20:14:50 2024 ] 	Learning Rate: 0.0023
+[ Wed May  1 20:14:50 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:14:50 2024 ] Eval epoch: 82
+(2, 1, 17, 1)
+Accuracy:  0.551640792042391  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:15:10 2024 ] 	Mean test loss of 169 batches: 1.6279018792880358.
+[ Wed May  1 20:15:10 2024 ] 	Top1: 55.16%
+[ Wed May  1 20:15:10 2024 ] 	Top5: 81.31%
+[ Wed May  1 20:15:10 2024 ] Training epoch: 83
+(2, 1, 17, 1)
+[ Wed May  1 20:16:12 2024 ] 	Mean training loss: 1.7891.  Mean training acc: 50.80%.
+[ Wed May  1 20:16:12 2024 ] 	Learning Rate: 0.0018
+[ Wed May  1 20:16:12 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:16:12 2024 ] Eval epoch: 83
+(2, 1, 17, 1)
+Accuracy:  0.556474853583713  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:16:31 2024 ] 	Mean test loss of 169 batches: 1.6206604270540046.
+[ Wed May  1 20:16:31 2024 ] 	Top1: 55.65%
+[ Wed May  1 20:16:31 2024 ] 	Top5: 81.00%
+[ Wed May  1 20:16:32 2024 ] Training epoch: 84
+(2, 1, 17, 1)
+[ Wed May  1 20:17:36 2024 ] 	Mean training loss: 1.7563.  Mean training acc: 51.83%.
+[ Wed May  1 20:17:36 2024 ] 	Learning Rate: 0.0013
+[ Wed May  1 20:17:36 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:17:36 2024 ] Eval epoch: 84
+(2, 1, 17, 1)
+Accuracy:  0.5640977967834898  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:17:55 2024 ] 	Mean test loss of 169 batches: 1.5856357953957552.
+[ Wed May  1 20:17:55 2024 ] 	Top1: 56.41%
+[ Wed May  1 20:17:55 2024 ] 	Top5: 81.86%
+[ Wed May  1 20:17:56 2024 ] Training epoch: 85
+(2, 1, 17, 1)
+[ Wed May  1 20:18:58 2024 ] 	Mean training loss: 1.7447.  Mean training acc: 51.84%.
+[ Wed May  1 20:18:58 2024 ] 	Learning Rate: 0.0010
+[ Wed May  1 20:18:58 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:18:58 2024 ] Eval epoch: 85
+(2, 1, 17, 1)
+Accuracy:  0.5612159524030864  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:19:17 2024 ] 	Mean test loss of 169 batches: 1.5964218646111572.
+[ Wed May  1 20:19:17 2024 ] 	Top1: 56.12%
+[ Wed May  1 20:19:17 2024 ] 	Top5: 81.51%
+[ Wed May  1 20:19:17 2024 ] Training epoch: 86
+(2, 1, 17, 1)
+[ Wed May  1 20:20:20 2024 ] 	Mean training loss: 1.7773.  Mean training acc: 51.47%.
+[ Wed May  1 20:20:20 2024 ] 	Learning Rate: 0.0006
+[ Wed May  1 20:20:20 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:20:20 2024 ] Eval epoch: 86
+(2, 1, 17, 1)
+Accuracy:  0.5646555731151808  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:20:39 2024 ] 	Mean test loss of 169 batches: 1.582340373090033.
+[ Wed May  1 20:20:39 2024 ] 	Top1: 56.47%
+[ Wed May  1 20:20:39 2024 ] 	Top5: 81.35%
+[ Wed May  1 20:20:39 2024 ] Training epoch: 87
+(2, 1, 17, 1)
+[ Wed May  1 20:21:42 2024 ] 	Mean training loss: 1.7450.  Mean training acc: 51.96%.
+[ Wed May  1 20:21:42 2024 ] 	Learning Rate: 0.0004
+[ Wed May  1 20:21:42 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:21:42 2024 ] Eval epoch: 87
+(2, 1, 17, 1)
+Accuracy:  0.5643766849493353  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:22:01 2024 ] 	Mean test loss of 169 batches: 1.5919198954599143.
+[ Wed May  1 20:22:01 2024 ] 	Top1: 56.44%
+[ Wed May  1 20:22:01 2024 ] 	Top5: 81.71%
+[ Wed May  1 20:22:01 2024 ] Training epoch: 88
+(2, 1, 17, 1)
+[ Wed May  1 20:23:04 2024 ] 	Mean training loss: 1.7555.  Mean training acc: 52.06%.
+[ Wed May  1 20:23:04 2024 ] 	Learning Rate: 0.0002
+[ Wed May  1 20:23:04 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:23:04 2024 ] Eval epoch: 88
+(2, 1, 17, 1)
+Accuracy:  0.5647485358371294  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:23:23 2024 ] 	Mean test loss of 169 batches: 1.5604519879324197.
+[ Wed May  1 20:23:23 2024 ] 	Top1: 56.47%
+[ Wed May  1 20:23:23 2024 ] 	Top5: 82.00%
+[ Wed May  1 20:23:23 2024 ] Training epoch: 89
+(2, 1, 17, 1)
+[ Wed May  1 20:24:28 2024 ] 	Mean training loss: 1.7151.  Mean training acc: 52.51%.
+[ Wed May  1 20:24:28 2024 ] 	Learning Rate: 0.0001
+[ Wed May  1 20:24:28 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:24:28 2024 ] Eval epoch: 89
+(2, 1, 17, 1)
+Accuracy:  0.5641907595054383  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:24:47 2024 ] 	Mean test loss of 169 batches: 1.5692736227836834.
+[ Wed May  1 20:24:47 2024 ] 	Top1: 56.42%
+[ Wed May  1 20:24:47 2024 ] 	Top5: 81.96%
+[ Wed May  1 20:24:47 2024 ] Training epoch: 90
+(2, 1, 17, 1)
+[ Wed May  1 20:25:50 2024 ] 	Mean training loss: 1.7343.  Mean training acc: 52.27%.
+[ Wed May  1 20:25:50 2024 ] 	Learning Rate: 0.0001
+[ Wed May  1 20:25:50 2024 ] 	Time consumption: [Data]06%, [Network]94%
+[ Wed May  1 20:25:50 2024 ] Eval epoch: 90
+(2, 1, 17, 1)
+Accuracy:  0.5635400204517989  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:26:09 2024 ] 	Mean test loss of 169 batches: 1.5873687232034446.
+[ Wed May  1 20:26:09 2024 ] 	Top1: 56.35%
+[ Wed May  1 20:26:09 2024 ] 	Top5: 81.52%
+[ Wed May  1 20:26:10 2024 ] Eval epoch: 1
+(2, 1, 17, 1)
+Accuracy:  0.5693966719345542  model:  ./work_dir/hmbdb51/bone_CoM_0/runs
+[ Wed May  1 20:26:29 2024 ] 	Mean test loss of 169 batches: 1.5540322396882187.
+[ Wed May  1 20:26:29 2024 ] 	Top1: 56.94%
+[ Wed May  1 20:26:29 2024 ] 	Top5: 82.25%
+[ Wed May  1 20:26:29 2024 ] Best accuracy: 0.5693966719345542
+[ Wed May  1 20:26:29 2024 ] Epoch number: 1
+[ Wed May  1 20:26:29 2024 ] Model name: ./work_dir/hmbdb51/bone_CoM_0/
+[ Wed May  1 20:26:29 2024 ] Model total number of params: 1446973
+[ Wed May  1 20:26:29 2024 ] Weight decay: 0.0004
+[ Wed May  1 20:26:29 2024 ] Base LR: 0.1
+[ Wed May  1 20:26:29 2024 ] Batch Size: 64
+[ Wed May  1 20:26:29 2024 ] Test Batch Size: 64
+[ Wed May  1 20:26:29 2024 ] seed: 1

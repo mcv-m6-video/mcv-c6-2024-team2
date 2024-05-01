@@ -12,7 +12,6 @@ from torch.utils.data import DataLoader
 
 # local imports
 from utils import *
-from HMDB51Dataset import HMDB51Dataset
 from utils import statistics, get_modality_data
 from models import (
     MultiModalModel,
@@ -167,14 +166,14 @@ def evaluate(
 
     for batch in pbar:
         # Gather batch and move to device
-        clips, labels = batch["clips"].to(device), batch["labels"].to(device)
+        clips, keypoints, labels = batch["clips"].to(device), batch["keypoints"], batch["labels"].to(device)
         # Forward pass
         with torch.no_grad():
             # outputs = model(clips)
 
             if fusion_type == "early_fusion":
                 model = modality_models["combined"]
-                data = get_modality_data(clips, modalities)
+                data = get_modality_data(clips, keypoints, modalities)
                 outputs = model(data)
                 loss = modality_loss_fn["combined"](outputs, labels)
                 loss_iter = loss.item()
@@ -184,7 +183,7 @@ def evaluate(
                 outputs = []
                 for modality_name in modalities:
                     model = modality_models[modality_name]
-                    data = get_modality_data(clips, [modality_name])
+                    data = get_modality_data(clips, keypoints, [modality_name])
                     output = model(data)
                     outputs.append(output)
                     loss = modality_loss_fn[modality_name](output, labels)
@@ -199,7 +198,7 @@ def evaluate(
                 for modality_name in modalities:
                     # pass through autoencoder
                     autoencoder = kwargs["projection_autoencoders"][modality_name]
-                    data = get_modality_data(clips, [modality_name])
+                    data = get_modality_data(clips, keypoints, [modality_name])
                     projected_data = autoencoder.encoder(data)
                     modality_data.append(projected_data)
                 data = torch.cat(modality_data, dim=1)
@@ -211,7 +210,7 @@ def evaluate(
                 modality_features = []
                 for modality_name in modalities:
                     model = modality_models[modality_name]
-                    data = get_modality_data(clips, [modality_name])
+                    data = get_modality_data(clips, keypoints, [modality_name])
                     output = model(data)
                     modality_features.append(output)
                 fused_feature = kwargs["attention_fusion_model"](modality_features)
@@ -296,7 +295,7 @@ def train(
     hits = count = 0  # auxiliary variables for computing accuracy
     for batch in pbar:
         # Gather batch and move to device
-        clips, labels = batch["clips"].to(device), batch["labels"].to(device)
+        clips, keypoints, labels = batch["clips"].to(device), batch["keypoints"].to(device), batch["labels"].to(device)
 
         if fusion_type == "early_fusion":
             model = modality_models["combined"]
@@ -373,7 +372,7 @@ def train(
             modality_features = []
             # Gather features from each modality
             for modality_name in modalities:
-                data = get_modality_data(clips, [modality_name])
+                data = get_modality_data(clips, keypoints, [modality_name])
                 modality_features.append(data)
 
             # fuse the modality features
@@ -416,7 +415,7 @@ wandb.init(project="c6_w7")
 if __name__ == "__main__":
     print("========== C6 : MULTI MODAL VIDEO CLASSIFICATION ==========")
     config_path = (
-        "/ghome/group04/c6-diana/week7_gunjan_dont_touch_por_Favor/config.yaml"
+        "./config.yaml"
     )
     if os.path.exists(config_path):
         with open(config_path, "r") as f:
@@ -433,7 +432,7 @@ if __name__ == "__main__":
 
     print("========== CONFIGURATION ==========")
     console_json_table(config)
-    experiment_name = config["experiment_name"]  # Corrected key name
+    experiment_name = config["experiment_name"]
     frames_dir = config["frames_dir"]
     annotations_dir = config["annotations_dir"]
     clip_length = config["clip_length"]

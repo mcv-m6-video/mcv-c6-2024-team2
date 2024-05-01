@@ -99,6 +99,7 @@ class HMDB51Dataset(Dataset):
         clip_length: int,
         crop_size: int,
         temporal_stride: int,
+        skeleton_file: str = os.path.join('data', 'hmdb51_2d_processed.pkl')
     ) -> None:
         """
         Initialize HMDB51 dataset.
@@ -120,9 +121,17 @@ class HMDB51Dataset(Dataset):
         self.clip_length = clip_length
         self.crop_size = crop_size
         self.temporal_stride = temporal_stride
+        self.skeleton_file = skeleton_file
 
         self.annotation = self._read_annotation()
+        self.annotation_skel = self._read_annotation_skeleton()
         self.transform = self._create_transform()
+
+    def _read_annotation_skeleton(self):
+        with open(self.skeleton_file, "rb") as file:
+            data = pickle.load(file)
+
+        return data['annotations']
 
     def _read_annotation(self) -> pd.DataFrame:
         """
@@ -222,6 +231,13 @@ class HMDB51Dataset(Dataset):
         )  # get sorted frame paths
         video_len = len(frame_paths)
 
+        video_name = video_path.split('\\')[-1]
+        skel_match = [d for d in self.annotation_skel if d['frame_dir'] == video_name]
+        if len(skel_match) != 0:
+            kepoints = np.array(skel_match[0]['keypoint'])
+        else:
+            print(f"No keypoints match found for {video_name}")
+
         if self.regime == HMDB51Dataset.Regime.TRAINING:
             if video_len <= self.clip_length * self.temporal_stride:
                 # Not enough frames to create the clip
@@ -257,7 +273,7 @@ class HMDB51Dataset(Dataset):
         label = df_idx["class_id"]
         assert video is not None
 
-        return video, label, video_path
+        return video, kepoints, label, video_path
 
     def collate_fn(self, batch: list) -> dict:
         """
@@ -271,7 +287,7 @@ class HMDB51Dataset(Dataset):
         """
         # [(clip1, label1, path1), (clip2, label2, path2), ...]
         #   -> ([clip1, clip2, ...], [label1, label2, ...], [path1, path2, ...])
-        unbatched_clips, unbatched_labels, paths = zip(*batch)
+        unbatched_clips, unbatched_skels, unbatched_labels, paths = zip(*batch)
 
         # Apply transformation and permute dimensions: (T, C, H, W) -> (C, T, H, W)
         transformed_clips = [
@@ -281,8 +297,13 @@ class HMDB51Dataset(Dataset):
         # B * [(C, T, H, W)] -> B * [(1, C, T, H, W)] -> (B, C, T, H, W)
         batched_clips = torch.cat([d.unsqueeze(0) for d in transformed_clips], dim=0)
 
+        _, original_dim, _, _ = unbatched_skels[0].shape
+        pad_needed = max(0, 5 - original_dim)
+        padding = (0, 0, 0, 0, 0, pad_needed, 0, 0)
+        batched_skels = F.pad(input_tensor, padding)
         return dict(
             clips=batched_clips,  # (B, C, T, H, W)
+            keypoints=batched_skels,
             labels=torch.tensor(unbatched_labels),  # (K,)
             paths=paths,  # no need to make it a tensor
         )

@@ -1,6 +1,6 @@
 experiment_name: "late_fusion"
-frames_dir: "/ghome/group04/c6-diana/week5/frames"
-annotations_dir: "/ghome/group04/c6-diana/week5/data/hmdb51/testTrainMulti_601030_splits"
+frames_dir: "../../w5/frames"
+annotations_dir: "../../week5/data/hmdb51/testTrainMulti_601030_splits"
 clip_length: 8
 crop_size: 240
 temporal_stride: 8
@@ -16,3 +16,4 @@ fusion_type: "late_fusion"
 modalities:
   - "temporal"
   - "spatial"
+  - "keypoints"
