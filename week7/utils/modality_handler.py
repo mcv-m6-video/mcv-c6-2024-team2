@@ -70,9 +70,9 @@ class Spatial_Modality(nn.Module):
 device = "cuda" if torch.cuda.is_available() else "cpu"
 temporal_model = Temporal_Modality().to(device)
 spatial_model = Spatial_Modality().to(device)
-keypoints_model = Model({"num_person": 5,
-                         "graph": "graph.ntu_rgb_d_hierarchy.Graph",
-                         "graph_args": {"labeling_mode": 'spatial', "CoM": 0}}).to(device)
+keypoints_model = Model(num_person=5,
+                        graph="graph.ntu_rgb_d_hierarchy.Graph",
+                        graph_args={"labeling_mode": 'spatial', "CoM": 0}).to(device)
 
 
 def get_modality_data(
