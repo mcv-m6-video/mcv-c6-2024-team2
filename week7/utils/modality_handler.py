@@ -77,6 +77,7 @@ keypoints_model = Model(num_person=5,
 
 def get_modality_data(
         batched_clip: torch.Tensor,
+        batched_keypoints: torch.Tensor,
         modality_names: List[str],
 ):
     aggregated_features = []
@@ -86,7 +87,7 @@ def get_modality_data(
         elif modality_name == "spatial":
             aggregated_features.append(spatial_model(batched_clip))
         elif modality_name == 'keypoints':
-            aggregated_features.append(keypoints_model(batched_clip))
+            aggregated_features.append(keypoints_model(batched_keypoints))
         else:
             raise NotImplementedError(f"{modality_name} not supported.")
 

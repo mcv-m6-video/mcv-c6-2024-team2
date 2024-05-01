@@ -12,6 +12,8 @@ from torch.utils.data import Dataset
 from torchvision.io import read_image
 from torchvision.transforms import v2
 import pickle
+import numpy as np
+import torch.nn.functional as F
 
 
 class HMDB51Dataset(Dataset):
@@ -131,8 +133,7 @@ class HMDB51Dataset(Dataset):
     def _read_annotation_skeleton(self):
         with open(self.skeleton_file, "rb") as file:
             data = pickle.load(file)
-
-        return data['annotations']
+        return data
 
     def _read_annotation(self) -> pd.DataFrame:
         """
@@ -233,9 +234,9 @@ class HMDB51Dataset(Dataset):
         video_len = len(frame_paths)
 
         video_name = video_path.split('\\')[-1]
-        skel_match = [d for d in self.annotation_skel if d['frame_dir'] == video_name]
+        skel_match = [self.annotation_skel[d] for d in self.annotation_skel.keys() if d == video_name]
         if len(skel_match) != 0:
-            kepoints = np.array(skel_match[0]['keypoint'])
+            keypoints = np.array(skel_match[0])
         else:
             print(f"No keypoints match found for {video_name}")
 
@@ -245,22 +246,15 @@ class HMDB51Dataset(Dataset):
                 clip_begin, clip_end = 0, video_len
             else:
                 # Randomly select a clip from the video with the desired length (start and end frames are inclusive)
-                clip_begin = random.randint(
-                    0, max(video_len - self.clip_length * self.temporal_stride, 0)
-                )
+                clip_begin = random.randint(0, max(video_len - self.clip_length * self.temporal_stride, 0))
                 clip_end = clip_begin + self.clip_length * self.temporal_stride
         else:
             # deterministic clip selection for validation and testing
-            clip_begin, clip_end = 0, min(
-                self.clip_length * self.temporal_stride, video_len
-            )
+            clip_begin, clip_end = 0, min(self.clip_length * self.temporal_stride, video_len)
 
         # Read frames from the video with the desired temporal subsampling
         video = None
-        for i, path in enumerate(
-            frame_paths[clip_begin : clip_end : self.temporal_stride]
-        ):
-
+        for i, path in enumerate(frame_paths[clip_begin : clip_end : self.temporal_stride]):
             # TODO: ADD MODALITY HERE SOMEWHERE
             frame = read_image(path)  # (C, H, W)
             if video is None:
@@ -270,11 +264,20 @@ class HMDB51Dataset(Dataset):
                 )
             video[i] = frame
 
+        # skels
+        M, T, V, C = keypoints.shape
+        if T <= self.clip_length:
+            clip_begin, clip_end = 0, T
+        else:
+            clip_begin = random.randint(0, max(T - self.clip_length, 0))
+            clip_end = clip_begin + self.clip_length
+        keypoints = keypoints[:, clip_begin:clip_end, :, :]
+
         # Get label from the annotation dataframe and make sure video was read
         label = df_idx["class_id"]
         assert video is not None
 
-        return video, kepoints, label, video_path
+        return video, keypoints, label, video_path
 
     def collate_fn(self, batch: list) -> dict:
         """
@@ -298,10 +301,13 @@ class HMDB51Dataset(Dataset):
         # B * [(C, T, H, W)] -> B * [(1, C, T, H, W)] -> (B, C, T, H, W)
         batched_clips = torch.cat([d.unsqueeze(0) for d in transformed_clips], dim=0)
 
-        _, original_dim, _, _ = unbatched_skels[0].shape
-        pad_needed = max(0, 5 - original_dim)
-        padding = (0, 0, 0, 0, 0, pad_needed, 0, 0)
-        batched_skels = F.pad(input_tensor, padding)
+        transformed_skels = []
+        for skel in unbatched_skels:
+            original_dim, _, _, _ = skel.shape
+            pad_needed = max(0, 5 - original_dim)
+            padding = (0, 0, 0, 0, 0, 0, 0, pad_needed)
+            transformed_skels.append(F.pad(torch.tensor(skel), padding))
+        batched_skels = torch.cat([d.unsqueeze(0) for d in transformed_clips], dim=0)
         return dict(
             clips=batched_clips,  # (B, C, T, H, W)
             keypoints=batched_skels,
