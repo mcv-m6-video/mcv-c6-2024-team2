@@ -1,0 +1,30 @@
+experiment_name: "attention_fusion"
+frames_dir: "./frames"
+annotations_dir: "./data/hmdb51/testTrainMulti_601030_splits"
+clip_length: 8
+crop_size: 240
+temporal_stride: 8
+load_pretrain: true
+optimizer_name: "adam"
+lr: 0.0001
+epochs: 50
+batch_size: 16
+batch_size_eval: 32
+validate_every: 5
+num_workers: 2
+fusion_type: "attention_fusion"
+modalities:
+  - "temporal"
+  - "skeleton"
+
+
+skel_model_args:
+  num_class: 51
+  num_point: 17
+  num_person: 1
+  graph: graph.ntu_rgb_d_hierarchy.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+    CoM: 0
+
+
