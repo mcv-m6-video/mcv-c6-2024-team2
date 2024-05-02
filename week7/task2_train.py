@@ -3,7 +3,7 @@ import yaml
 from tabulate import tabulate
 from typing import List, Dict, Iterator
 from tqdm import tqdm
-import wandb
+from itertools import combinations
 
 
 import torch
@@ -16,10 +16,10 @@ from HMDB51Dataset import HMDB51Dataset
 from utils import statistics, get_modality_data
 from models import (
     MultiModalModel,
-    ModalityProjectionModel,
     Autoencoder,
     MultiModalAttentionFusion,
 )
+import wandb
 
 
 def console_json_table(data, headers: List[str] = ["Parameter", "Value"]):
@@ -167,14 +167,20 @@ def evaluate(
 
     for batch in pbar:
         # Gather batch and move to device
-        clips, labels = batch["clips"].to(device), batch["labels"].to(device)
+        clips, depth_clips, labels = (
+            batch["clips"].to(device),
+            batch["depth_clips"].to(device),
+            batch["labels"].to(device),
+        )
         # Forward pass
         with torch.no_grad():
             # outputs = model(clips)
 
             if fusion_type == "early_fusion":
                 model = modality_models["combined"]
-                data = get_modality_data(clips, modalities)
+                data = get_modality_data(clips, depth_clips, modalities)
+                # reprojection of the data
+
                 outputs = model(data)
                 loss = modality_loss_fn["combined"](outputs, labels)
                 loss_iter = loss.item()
@@ -184,7 +190,7 @@ def evaluate(
                 outputs = []
                 for modality_name in modalities:
                     model = modality_models[modality_name]
-                    data = get_modality_data(clips, [modality_name])
+                    data = get_modality_data(clips, depth_clips, [modality_name])
                     output = model(data)
                     outputs.append(output)
                     loss = modality_loss_fn[modality_name](output, labels)
@@ -199,21 +205,21 @@ def evaluate(
                 for modality_name in modalities:
                     # pass through autoencoder
                     autoencoder = kwargs["projection_autoencoders"][modality_name]
-                    data = get_modality_data(clips, [modality_name])
-                    projected_data = autoencoder.encoder(data)
+                    autoencoder.eval()
+                    data = get_modality_data(clips, depth_clips, [modality_name])
+                    projected_data = autoencoder(data)
                     modality_data.append(projected_data)
                 data = torch.cat(modality_data, dim=1)
                 model = modality_models["combined"]
+
                 outputs = model(data)
                 loss = modality_loss_fn["combined"](outputs, labels)
                 loss_iter = loss.item()
             elif fusion_type == "attention_fusion":
                 modality_features = []
                 for modality_name in modalities:
-                    model = modality_models[modality_name]
-                    data = get_modality_data(clips, [modality_name])
-                    output = model(data)
-                    modality_features.append(output)
+                    data = get_modality_data(clips, depth_clips, [modality_name])
+                    modality_features.append(data)
                 fused_feature = kwargs["attention_fusion_model"](modality_features)
 
                 # classification model
@@ -293,36 +299,47 @@ def train(
 
     pbar = tqdm(train_loader, desc=description, total=len(train_loader))
     loss_train_mean = statistics.RollingMean(window_size=len(train_loader))
+    all_losses = []
     hits = count = 0  # auxiliary variables for computing accuracy
+
+    # TODO: MODALITY SPECIFIC TRAINING WANDB LOGGING
+    wandb_log = {}
     for batch in pbar:
         # Gather batch and move to device
-        clips, labels = batch["clips"].to(device), batch["labels"].to(device)
 
+        clips, depth_clips, labels = (
+            batch["clips"].to(device),
+            batch["depth_clips"].to(device),
+            batch["labels"].to(device),
+        )
         if fusion_type == "early_fusion":
             model = modality_models["combined"]
-            data = get_modality_data(clips, modalities)
+            data = get_modality_data(clips, depth_clips, modalities)
             outputs = model(data)
             loss = modality_loss_fn["combined"](outputs, labels)
             loss_iter = loss.item()
             # Backward pass
             loss.backward()
+            wandb_log["early_fusion_classification_train_loss"] = loss_iter
 
             modality_optimizers["combined"].step()
             modality_optimizers["combined"].zero_grad()
 
-            # DIANA: WANDB LOGGING HERE FOR TRAINING LOSS, TRAINING ACCURACY FOR EARLY FUSION CLASSIFICATION MODEL
 
         elif fusion_type == "late_fusion":
             all_losses = []
             for modality_name in modalities:
                 model = modality_models[modality_name]
-                data = get_modality_data(clips, [modality_name])
+                data = get_modality_data(clips, depth_clips, [modality_name])
                 outputs = model(data)
                 loss = modality_loss_fn[modality_name](outputs, labels)
                 all_losses.append(loss)
                 # Backward pass
                 loss.backward()
-                # DIANA: WANDB LOGGING HERE FOR TRAINING LOSS, TRAINING ACCURACY FOR LATE FUSION CLASSIFICATION MODELS
+
+                wandb_log[f"late_fusion_{modality_name}_classification_train_loss"] = (
+                    loss.item()
+                )
 
                 modality_optimizers[modality_name].step()
                 modality_optimizers[modality_name].zero_grad()
@@ -330,50 +347,55 @@ def train(
             loss_iter = loss_iter.item()
         elif fusion_type == "intermediate_fusion":
 
-            # DIANA: WANDB LOGGING HERE FOR TRAINING LOSS, TRAINING ACCURACY FOR INTERMEDIATE FUSION CLASSIFICATION MODEL
-            """
-            WE NEED OBSERVE THE LOSS AND ACCURACY FOR THE AUTOENCODER MODEL
-            WE NEED TO OBSERVE THE LOSS AND ACCURACY FOR THE CLASSIFICATION MODEL
-            """
-
-            # ! NOTE: WE ARE TRAINING THE PROJECTION AUTOENCODER MODEL FOR EACH MODALITY
+            # # ! NOTE: WE ARE TRAINING THE PROJECTION AUTOENCODER MODEL FOR EACH MODALITY
             modality_data = []
+
+            total_loss = 0
+
+            # Accumulate losses from each autoencoder
             for modality_name in modalities:
-                # pass through autoencoder
                 autoencoder = kwargs["projection_autoencoders"][modality_name]
-                data = get_modality_data(clips, [modality_name])
-                # forward pass
-                projected_data = autoencoder.encoder(data)
+                data = get_modality_data(clips, depth_clips, [modality_name])
+                projected_data = autoencoder(data)
                 modality_data.append(projected_data)
-                # loss
+
+                # Calculate loss and accumulate
                 loss = kwargs["projection_autoencoders_loss_fn"][modality_name](
                     projected_data, data
                 )
-                # backward pass
-                loss.backward()
-                # optimizer step
+                total_loss += loss
+                wandb_log[
+                    f"intermediate_fusion_{modality_name}_autoencoder_train_loss"
+                ] = loss.item()
 
-                kwargs["projection_autoencoders_optimizers"][modality_name].step()
-                kwargs["projection_autoencoders_optimizers"][modality_name].zero_grad()
+            # Final combined model processing
             data = torch.cat(modality_data, dim=1)
             model = modality_models["combined"]
             outputs = model(data)
             loss = modality_loss_fn["combined"](outputs, labels)
-            loss_iter = loss.item()
-            # Backward pass
-            loss.backward()
-            # optimizer step
+            total_loss += loss
+            wandb_log["intermediate_fusion_classification_train_loss"] = loss.item()
+
+            loss_iter = total_loss.item()
+            wandb_log["intermediate_fusion_total_train_loss"] = loss_iter
+
+            # Single backward pass on the total accumulated loss
+            total_loss.backward()
+
+            # Optimizer steps for each autoencoder and the combined model
+            for modality_name in modalities:
+                kwargs["projection_autoencoders_optimizers"][modality_name].step()
+                kwargs["projection_autoencoders_optimizers"][modality_name].zero_grad()
+
             modality_optimizers["combined"].step()
             modality_optimizers["combined"].zero_grad()
-        elif fusion_type == "attention_fusion":
 
-            # DIANA: WANDB LOGGING HERE FOR TRAINING LOSS, TRAINING ACCURACY FOR ATTENTION MODEL
-            # DIANA: WANDB LOGGING HERE FOR TRAINING LOSS, TRAINING ACCURACY FOR CLASSIFICATION MODEL
+        elif fusion_type == "attention_fusion":
 
             modality_features = []
             # Gather features from each modality
             for modality_name in modalities:
-                data = get_modality_data(clips, [modality_name])
+                data = get_modality_data(clips, depth_clips, [modality_name])
                 modality_features.append(data)
 
             # fuse the modality features
@@ -386,6 +408,8 @@ def train(
             # compute loss
             loss = modality_loss_fn["combined"](outputs, labels)
             loss_iter = loss.item()
+
+            wandb_log["attention_fusion_classification_train_loss"] = loss_iter
 
             # backward pass
             loss.backward()
@@ -401,6 +425,7 @@ def train(
         hits_iter = torch.eq(outputs.argmax(dim=1), labels).sum().item()
         hits += hits_iter
         count += len(labels)
+        all_losses.append(loss_iter)
         pbar.set_postfix(
             loss=loss_iter,
             loss_mean=loss_train_mean(loss_iter),
@@ -408,49 +433,48 @@ def train(
             acc_mean=(float(hits) / count),
         )
     # RETURN MEAN ACCURACY AND LOSS
-    return float(hits) / count, loss_train_mean
+    return (float(hits) / count, sum(all_losses) / len(all_losses), wandb_log)
 
 
-wandb.init(project="c6_w7")
+def pipeline(
+    experiment_name,
+    frames_dir,
+    annotations_dir,
+    clip_length,
+    crop_size,
+    temporal_stride,
+    optimizer_name,
+    lr,
+    epochs,
+    batch_size,
+    batch_size_eval,
+    validate_every,
+    num_workers,
+    fusion_type,
+    modalities,
+    device,
+):
 
-if __name__ == "__main__":
-    print("========== C6 : MULTI MODAL VIDEO CLASSIFICATION ==========")
-    config_path = (
-        "/ghome/group04/c6-diana/week7_gunjan_dont_touch_por_Favor/config.yaml"
+    run = wandb.init(project="c6-final_presentation_experiment")
+    wandb.log(
+        {
+            "frames_dir": frames_dir,
+            "annotations_dir": annotations_dir,
+            "clip_length": clip_length,
+            "crop_size": crop_size,
+            "temporal_stride": temporal_stride,
+            "optimizer_name": optimizer_name,
+            "lr": lr,
+            "epochs": epochs,
+            "batch_size": batch_size,
+            "batch_size_eval": batch_size_eval,
+            "validate_every": validate_every,
+            "num_workers": num_workers,
+            "fusion_type": fusion_type,
+            "modalities": modalities,
+            "device": device,
+        }
     )
-    if os.path.exists(config_path):
-        with open(config_path, "r") as f:
-            config = yaml.safe_load(f)
-            print("========== CONFIGURATION FROM YAML FILE ==========")
-            console_json_table(config)
-            if "experiment_name" not in config:
-                print("ERROR: 'experiment_name' key not found in config")
-            else:
-                experiment_name = config["experiment_name"]
-                print("Experiment Name:", experiment_name)
-    else:
-        raise FileNotFoundError("config.yaml not found")
-
-    print("========== CONFIGURATION ==========")
-    console_json_table(config)
-    experiment_name = config["experiment_name"]  # Corrected key name
-    frames_dir = config["frames_dir"]
-    annotations_dir = config["annotations_dir"]
-    clip_length = config["clip_length"]
-    crop_size = config["crop_size"]
-    temporal_stride = config["temporal_stride"]
-    load_pretrain = config["load_pretrain"]
-    optimizer_name = config["optimizer_name"]
-    lr = config["lr"]
-    epochs = config["epochs"]
-    batch_size = config["batch_size"]
-    batch_size_eval = config["batch_size_eval"]
-    validate_every = config["validate_every"]
-    num_workers = config["num_workers"]
-    fusion_type = config["fusion_type"]
-    modalities = config["modalities"]
-
-    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     print("========== DATA PREPARATION ==========")
     datasets = create_datasets(
@@ -487,12 +511,21 @@ if __name__ == "__main__":
 
     # CLASIFICATION MODELS
     modality_models = {}
-    if fusion_type in ["early_fusion", "intermediate_fusion", "attention_fusion"]:
+    if fusion_type in [
+        "early_fusion",
+        "intermediate_fusion",
+    ]:
         num_modalities = len(modalities)
         modality_models["combined"] = MultiModalModel(
             num_classes=51, num_modalities=num_modalities
         ).to(device)
-    elif fusion_type == "late_fusion":
+    elif fusion_type in ["attention_fusion"]:
+        modality_models["combined"] = MultiModalModel(
+            num_classes=51, num_modalities=1
+        ).to(device)
+    elif fusion_type in [
+        "late_fusion",
+    ]:
         for mod in modalities:
             modality_models[mod] = MultiModalModel(num_classes=51, num_modalities=1).to(
                 device
@@ -502,11 +535,16 @@ if __name__ == "__main__":
 
     # OPTIMIZERS
     modality_optimizers = {}
-    if fusion_type in ["early_fusion", "intermediate_fusion", "attention_fusion"]:
+    if fusion_type in ["early_fusion"]:
         modality_optimizers["combined"] = create_optimizer(
             optimizer_name, modality_models["combined"].parameters(), lr=lr
         )
-    elif fusion_type == "late_fusion":
+    elif fusion_type in ["intermediate_fusion", "attention_fusion"]:
+        modality_optimizers["combined"] = create_optimizer(
+            optimizer_name, modality_models["combined"].parameters(), lr=lr
+        )
+
+    elif fusion_type in ["late_fusion"]:
         for modality_name in modalities:
             modality_optimizers[modality_name] = create_optimizer(
                 optimizer_name, modality_models[modality_name].parameters(), lr=lr
@@ -566,8 +604,6 @@ if __name__ == "__main__":
         attention_fusion_loss_fn = nn.CrossEntropyLoss()
 
     print("========== TRAINING ==========")
-    wandb.log({"message": "Training started"})
-
     # EARLY STOPPING VARIABLES
     LOSS_TOLERANCE = 0.01
     LOSS_OBSERVATION_WINDOW = 5
@@ -578,6 +614,7 @@ if __name__ == "__main__":
         # Validation
         if epoch % validate_every == 0:
             description = f"Validation [Epoch: {epoch+1}/{epochs}]"
+
             output = evaluate(
                 modality_models=modality_models,
                 valid_loader=loaders["validation"],
@@ -594,19 +631,17 @@ if __name__ == "__main__":
                 attention_fusion_model=attention_fusion_model,
                 attention_fusion_loss_fn=attention_fusion_loss_fn,
             )
-
-            # Log validation metrics to wandb
             wandb.log(
                 {
-                    "epoch": epoch,
-                    "validation_loss": output["average_loss"],
-                    "validation_accuracy": output["overall_acc"],
+                    "validation_overall_acc": output["overall_acc"],
+                    "validation_average_loss": output["average_loss"],
                 }
             )
 
         # Training
+
         description = f"Training [Epoch: {epoch+1}/{epochs}]"
-        train_mean_acc, train_mean_loss = train(
+        train_mean_acc, train_mean_loss, wandb_log = train(
             modality_models=modality_models,
             train_loader=loaders["training"],
             modality_optimizers=modality_optimizers,
@@ -625,11 +660,18 @@ if __name__ == "__main__":
             attention_fusion_optimizer=attention_fusion_optimizer,
         )
 
-        # Log training metrics to wandb
+        print(
+            {
+                "training_mean_acc": train_mean_acc,
+                "training_mean_loss": train_mean_loss,
+            }
+        )
+        print("================================")
+        wandb.log(wandb_log)
         wandb.log(
             {
-                "epoch": epoch,
-                "training_accuracy": train_mean_acc,
+                "training_mean_acc": train_mean_acc,
+                "training_mean_loss": train_mean_loss,
             }
         )
 
@@ -638,14 +680,12 @@ if __name__ == "__main__":
             print("Training accuracy is above 90%")
             break
 
-    wandb.log({"message": "Training finished"})
-
     print("========== SAVING MODELS ==========")
     # save model
     for modality_name, model in modality_models.items():
         torch.save(
             model.state_dict(),
-            f"{fusion_type}_{experiment_name}_{modality_name}_epoch_{epoch}.pth",
+            f"{fusion_type}_{run.name}_{modality_name}_epoch_{epoch}.pth",
         )
 
     # TESTING
@@ -661,8 +701,6 @@ if __name__ == "__main__":
     )
     print("========== TESTING ==========")
 
-    wandb.log({"message": "Testing started"})
-
     test_result = evaluate(
         modality_models=modality_models,
         valid_loader=loaders["testing"],
@@ -671,6 +709,13 @@ if __name__ == "__main__":
         description=description,
         modalities=modalities,
         fusion_type=fusion_type,
+    )
+    wandb.log(
+        {
+            "testing_overall_acc": test_result["overall_acc"],
+            "testing_average_loss": test_result["average_loss"],
+            "testing_class_acc": test_result["class_acc"],
+        }
     )
 
     console_json_table(
@@ -681,12 +726,79 @@ if __name__ == "__main__":
         headers=["Parameter", "Value"],
     )
     console_json_table(data=test_result["class_acc"], headers=["Class", "Accuracy"])
+    wandb.finish()
 
-    wandb.log(
-        {
-            "testing_accuracy": test_result["overall_acc"],
-            "testing_loss": test_result["average_loss"],
-        }
+
+if __name__ == "__main__":
+    print("========== C6 : MULIT MODAL VIDEO CLASSIFICATION ==========")
+    config_path = "/ghome/group04/c6-diana/week7_gunjan/config.yaml"
+    if os.path.exists(config_path):
+        with open(config_path, "r") as f:
+            config = yaml.safe_load(f)
+    else:
+        raise FileNotFoundError("config.yaml not found")
+
+    print("========== CONFIGURATION ==========")
+    console_json_table(config)
+    experiment_name = config["experiment_name"]
+    frames_dir = config["frames_dir"]
+    annotations_dir = config["annotations_dir"]
+    clip_length = config["clip_length"]
+    crop_size = config["crop_size"]
+    temporal_stride = config["temporal_stride"]
+    load_pretrain = config["load_pretrain"]
+    optimizer_name = config["optimizer_name"]
+    lr = config["lr"]
+    epochs = config["epochs"]
+    batch_size = config["batch_size"]
+    batch_size_eval = config["batch_size_eval"]
+    validate_every = config["validate_every"]
+    num_workers = config["num_workers"]
+    # fusion_type = config["fusion_type"]
+    # modalities = config["modalities"]
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    avalilable_fusion_types = [
+        # "early_fusion",
+        # "late_fusion",
+        "intermediate_fusion",
+        "attention_fusion",
+    ]
+    avalilable_modalities = ["temporal", "spatial", "depth_map"]
+
+    # combinations of modalities could be single modality, two modalities, three modalities
+    combinations_modalities = (
+        [[modality] for modality in avalilable_modalities]
+        + [list(comb) for comb in combinations(avalilable_modalities, 2)]
+        + [list(comb) for comb in combinations(avalilable_modalities, 3)]
     )
 
-    wandb.log({"message": "Testing finished"})
+    for fusion_type in avalilable_fusion_types:
+        for modalities in combinations_modalities:
+
+            console_json_table(
+                data={"fusion_type": fusion_type, "modalities": modalities}
+            )
+            try:
+                pipeline(
+                    experiment_name=experiment_name,
+                    frames_dir=frames_dir,
+                    annotations_dir=annotations_dir,
+                    clip_length=clip_length,
+                    crop_size=crop_size,
+                    temporal_stride=temporal_stride,
+                    optimizer_name=optimizer_name,
+                    lr=lr,
+                    epochs=epochs,
+                    batch_size=batch_size,
+                    batch_size_eval=batch_size_eval,
+                    validate_every=validate_every,
+                    num_workers=num_workers,
+                    fusion_type=fusion_type,
+                    modalities=modalities,
+                    device=device,
+                )
+            except Exception as e:
+                print(f"Error: {e}")
+                print("========== SKIPPING ==========")
+                continue
